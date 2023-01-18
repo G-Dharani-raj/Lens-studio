@@ -118,7 +118,7 @@ const Navbar = () => {
             <Button my="2" onClick={logout}>
               Logout
             </Button>
-            {/* <Button
+            <Button
               as={"a"}
               fontSize={"sm"}
               fontWeight={400}
@@ -126,9 +126,9 @@ const Navbar = () => {
               href={"#"}
             >
               Sign In
-            </Button> */}
+            </Button>
             <LoginModal/>
-            {/* <Button
+            <Button
               display={{ base: "none", md: "inline-flex" }}
               fontSize={"sm"}
               fontWeight={600}
@@ -140,7 +140,7 @@ const Navbar = () => {
               }}
             >
               Sign Up
-            </Button> */}
+            </Button>
             <ModalCom/>
 
             {/* // for authentication */}

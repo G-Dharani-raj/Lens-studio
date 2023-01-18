@@ -23,7 +23,18 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import ModalCom from "../../Modal/SignUpModal";
+import LoginModal from "../../Modal/LoginModal";
+import { logout } from "../../Cards/LoginCard";
+import UseAuth from "../../CustomHook/UseAuth";
 const Navbar = () => {
+
+  // for authentication
+
+  const { currentUser, userDetails } = UseAuth();
+  console.log("currentUser: ", currentUser);
+ // for authentication
+
   const { isOpen, onToggle } = useDisclosure();
   return (
     <div>
@@ -98,6 +109,15 @@ const Navbar = () => {
             direction={"row"}
             spacing={6}
           >
+             {/* // for authentication */}
+            <Text>
+              {currentUser
+                ? userDetails?.displayFirstName || currentUser?.email
+                : "Person"}
+            </Text>
+            <Button my="2" onClick={logout}>
+              Logout
+            </Button>
             <Button
               as={"a"}
               fontSize={"sm"}
@@ -107,6 +127,7 @@ const Navbar = () => {
             >
               Sign In
             </Button>
+            <LoginModal/>
             <Button
               display={{ base: "none", md: "inline-flex" }}
               fontSize={"sm"}
@@ -120,6 +141,11 @@ const Navbar = () => {
             >
               Sign Up
             </Button>
+            <ModalCom/>
+
+            {/* // for authentication */}
+
+
           </Stack>
         </Flex>
 

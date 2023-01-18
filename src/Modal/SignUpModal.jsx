@@ -16,15 +16,15 @@ function ModalCom() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button
-        color="white"
+      <Text
+        w="60px"
+        color="black"
         variant="outline"
-        backgroundColor="#5034ff"
-        _hover={{ borderColor: "white", border: "2px" }}
+        _hover={{ cursor: "pointer", fontSize: "15px" }}
         onClick={onOpen}
       >
         Sign Up
-      </Button>
+      </Text>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

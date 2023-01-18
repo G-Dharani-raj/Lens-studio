@@ -10,6 +10,7 @@ import {
   Collapse,
   Icon,
   Link,
+  Input,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -37,7 +38,7 @@ const Navbar = () => {
 
   const { isOpen, onToggle } = useDisclosure();
   return (
-    <div>
+    <Box>
       <div className="Navbar">
         <ul>
           <p>Do More, Be More</p>
@@ -89,7 +90,8 @@ const Navbar = () => {
           </Flex>
           <Box flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
             <Flex display={{ base: "none", md: "flex" }} ml={10}>
-              {/* <DesktopNav /> */}
+                          {/* <DesktopNav /> */}
+                          <Input/>
             </Flex>{" "}
             <Text
               textAlign={useBreakpointValue({ base: "center", md: "left" })}
@@ -153,7 +155,7 @@ const Navbar = () => {
           <MobileNav />
         </Collapse>
       </Box>
-    </div>
+    </Box>
   );
 };
 

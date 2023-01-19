@@ -2,26 +2,24 @@ import {
   Flex,
   Box,
   FormControl,
-  FormLabel,
+  useToast  ,
   Input,
   InputGroup,
-  
   InputRightElement,
   Stack,
   Button,
-  
   Text,
   useColorModeValue,
   Link,
-  
 } from "@chakra-ui/react";
+
 import { Link as RouterLink } from "react-router-dom";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { auth, db, provider } from "../FireBase/firebase";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-
+import "./card.css";
 export default function SignupCard() {
   const [emailSignUp, setEmailSignUp] = useState("");
   const [passwordSignUp, setPasswordSignUp] = useState("");
@@ -30,11 +28,19 @@ export default function SignupCard() {
   const [Phonenumber, setPhonenumber] = useState("");
   const [gender, setgender] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
+  const toast = useToast()
+  const showMsg = (msg, msgType) => {
+    return toast({
+         title: msg,
+         position: 'top', variant: 'left-accent',
+         status: msgType, isClosable: true,
+    })
+}
   const signInWithGoogle = async () => {
     try {
       const usrCredential = await signInWithPopup(auth, provider);
       const user = usrCredential.user;
+      console.log(user);
       const name = user.displayName;
       const email = user.email;
       const profilePic = user.photoURL;
@@ -86,115 +92,151 @@ export default function SignupCard() {
       setgender("");
       setPhonenumber("");
       console.log("user: ", user);
-    } catch (error) {
-      console.log("error: ", error);
+    } catch (error)  {
+      // console.log(error)
+      if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
+        showMsg("Email already exist.", 'error')
+   } else if (error.message === 'Firebase: Error (auth/invalid-email).') {
+        showMsg("Please fill correct Email Id", 'error')
+   } 
     }
   };
 
   return (
-    <Flex
-      minH={"100vh"}
-      align={"center"}
-      justify={"center"}
-      bg={useColorModeValue("gray.50", "gray.800")}
-    >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-        <Stack align={"center"}>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            Create An Account
-          </Text>
-        </Stack>
-        <Box
-          rounded={"lg"}
-          bg={useColorModeValue("white", "gray.700")}
-          boxShadow={"lg"}
-          p={8}
-        >
-          <Stack spacing={4}>
-            <FormControl id="firstName" isRequired>
-              <FormLabel>First Name</FormLabel>
+    <Stack spacing={8} mx={"auto"} maxW={"lg"} py={2} px={2}>
+      {/* <Box
+        rounded={"lg"}
+        bg={useColorModeValue("white", "gray.700")}
+        boxShadow={"lg"}
+        p={2}
+      > */}
+        <Stack spacing={3}>
+          {/* <FormControl id="firstName" isRequired>
+              
               <Input
                 type="text"
                 placeholder="First Name"
                 value={displayFirstNameSignUp}
                 onChange={(e) => setdisplayFirstNameSignUp(e.target.value)}
               />
-            </FormControl>
-
-            <FormControl id="lastName">
-              <FormLabel>Last Name</FormLabel>
-              <Input
-                type="text"
-                placeholder="last Name"
-                value={displayLastNameSignUp}
-                onChange={(e) => setdisplayLastNameSignUp(e.target.value)}
-              />
-            </FormControl>
-            <FormControl id="Phone" isRequired>
-              <FormLabel>Phone Number</FormLabel>
-              <Input
-                type="text"
-                placeholder="phone number"
-                value={Phonenumber}
-                onChange={(e) => setPhonenumber(e.target.value)}
-              />
-            </FormControl>
-            <FormControl id="email" isRequired>
-              <FormLabel>Email address</FormLabel>
-              <Input
-                type="email"
-                placeholder="Email"
-                value={emailSignUp}
-                onChange={(e) => setEmailSignUp(e.target.value)}
-              />
-            </FormControl>
-            <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
-              <InputGroup>
-                <Input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Password"
-                  value={passwordSignUp}
-                  onChange={(e) => setPasswordSignUp(e.target.value)}
-                />
-                <InputRightElement h={"full"}>
-                  <Button
-                    variant={"ghost"}
-                    onClick={() =>
-                      setShowPassword((showPassword) => !showPassword)
-                    }
-                  >
-                    {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
-            <Stack spacing={2} pt={2}>
-              <Button
-                loadingText="Submitting"
-                size="lg"
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-                onClick={SignUpFunc}
-              >
-                Sign up
-              </Button>
-              <br />
-              <Button my="2" onClick={signInWithGoogle}>
-                Sign In Google
-              </Button>
-            </Stack>
-            <Stack pt={6}>
-              <Text align={"center"}>
-                Already a user? <Link  color={"blue.400"}>Login</Link>
-              </Text>
-            </Stack>
+            </FormControl> */}
+          <div class="inputbox">
+            <input
+              required="required"
+              type="text"
+              value={displayFirstNameSignUp}
+              onChange={(e) => setdisplayFirstNameSignUp(e.target.value)}
+            />
+            <span>First Name</span>
+            <i></i>
+          </div>
+          
+            {/* <Input
+              type="text"
+              placeholder="last Name"
+              value={displayLastNameSignUp}
+              onChange={(e) => setdisplayLastNameSignUp(e.target.value)}
+            /> */}
+            <div class="inputbox">
+            <input
+              required="required"
+              type="text"
+              value={displayLastNameSignUp}
+              onChange={(e) => setdisplayLastNameSignUp(e.target.value)}
+            />
+            <span>Last Name</span>
+            <i></i>
+          </div>
+          
+          {/* <FormControl id="Phone" isRequired>
+            <Input
+              type="text"
+              placeholder="phone number"
+              value={Phonenumber}
+              onChange={(e) => setPhonenumber(e.target.value)}
+            />
+          </FormControl> */}
+          <div class="inputbox">
+            <input
+              required="required"
+              type="text"
+              value={Phonenumber}
+              onChange={(e) => setPhonenumber(e.target.value)}
+            />
+            <span>Phone number</span>
+            <i></i>
+          </div>
+          {/* <FormControl id="email" isRequired>
+            <Input
+              type="email"
+              placeholder="Email"
+              value={emailSignUp}
+              onChange={(e) => setEmailSignUp(e.target.value)}
+            />
+          </FormControl> */}
+           <div class="inputbox">
+            <input
+              required="required"
+              type="text"
+              value={emailSignUp}
+              onChange={(e) => setEmailSignUp(e.target.value)}
+            />
+            <span>Email</span>
+            <i></i>
+          </div>
+          <FormControl id="password" isRequired>
+            <InputGroup>
+              {/* <Input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                value={passwordSignUp}
+                onChange={(e) => setPasswordSignUp(e.target.value)}
+              /> */}
+              <div class="inputbox">
+            <input
+              required="required"
+              type={showPassword ? "text" : "password"}
+              value={passwordSignUp}
+              onChange={(e) => setPasswordSignUp(e.target.value)}
+            />
+            <span>Password</span>
+            <i></i>
+          </div>
+              <InputRightElement h={"full"}>
+                <Button
+                  variant={"ghost"}
+                  onClick={() =>
+                    setShowPassword((showPassword) => !showPassword)
+                  }
+                >
+                  {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+          </FormControl>
+          <Stack spacing={2} pt={2}>
+            {/* <Button
+              loadingText="Submitting"
+              size="lg"
+              bg={"blue.400"}
+              color={"white"}
+              _hover={{
+                bg: "blue.500",
+              }}
+              onClick={SignUpFunc}
+            >
+              Sign up
+            </Button> */}
+            <button onClick={SignUpFunc} class="btn">
+            Sign up
+</button>
+            <br />
+            <button my="2" class="btn" onClick={signInWithGoogle}>
+              Sign In Google
+            </button>
           </Stack>
-        </Box>
-      </Stack>
-    </Flex>
+        </Stack>
+      {/* </Box> */}
+    </Stack>
   );
 }

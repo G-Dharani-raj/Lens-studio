@@ -42,7 +42,7 @@ const AdminAddForm = () => {
 				</Select>
 				<FormLabel>Price</FormLabel>
 				<Input type="number" ref={priceRef} />
-				<FormLabel>Discounts</FormLabel>
+				<FormLabel>Discount</FormLabel>
 				<Input type="number" ref={discountRef} />
 				<Input type="submit" />
 			</form>

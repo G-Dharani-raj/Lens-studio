@@ -10,12 +10,20 @@ import {
   Collapse,
   Icon,
   Link,
+  Input,
   Popover,
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
+  MenuButton,
+  Image,
   useDisclosure,
+  MenuDivider,
+  MenuList,
+  Avatar,
+  Menu,
+  MenuItem,
+  Img,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -23,10 +31,22 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import ModalCom from "../../Modal/SignUpModal";
+import LoginModal from "../../Modal/LoginModal";
+import { logout } from "../../Cards/LoginCard";
+import UseAuth from "../../CustomHook/UseAuth";
+import Logo from "./lens.png";
+import { FaRegHeart, FaShoppingCart, FaUserCircle } from "react-icons/fa";
 const Navbar = () => {
+  // for authentication
+
+  const { currentUser, userDetails } = UseAuth();
+  console.log("currentUser: ", currentUser);
+  // for authentication
+
   const { isOpen, onToggle } = useDisclosure();
   return (
-    <div>
+    <Box>
       <div className="Navbar">
         <ul>
           <p>Do More, Be More</p>
@@ -78,15 +98,20 @@ const Navbar = () => {
           </Flex>
           <Box flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
             <Flex display={{ base: "none", md: "flex" }} ml={10}>
-              {/* <DesktopNav /> */}
+              <Image src={Logo} w="130px" m="auto" />
+              <Image
+                src="https://static.lenskart.com/media/mobile/images/phone_number.svg"
+                w={"120px"}
+                h="40px"
+                marginLeft={"70px"}
+              />
+              {/* this is input tag that will help you to search parameter  */}
+              <Input
+                w="600px"
+                marginLeft="20px"
+                placeholder="What are Looking for "
+              />
             </Flex>{" "}
-            <Text
-              textAlign={useBreakpointValue({ base: "center", md: "left" })}
-              fontFamily={"heading"}
-              color={useColorModeValue("gray.800", "white")}
-            >
-              Logo
-            </Text>
             <Flex display={{ base: "none", md: "flex" }} ml={10}>
               <DesktopNav />
             </Flex>
@@ -98,7 +123,16 @@ const Navbar = () => {
             direction={"row"}
             spacing={6}
           >
-            <Button
+            {/* // for authentication */}
+            {/* <Text>
+              {currentUser
+                ? userDetails?.displayFirstName || currentUser?.email
+                : "Person"}
+            </Text> */}
+            {/* <Text my="2" onClick={logout}>
+              Logout
+            </Text> */}
+            {/* <Button
               as={"a"}
               fontSize={"sm"}
               fontWeight={400}
@@ -107,6 +141,7 @@ const Navbar = () => {
             >
               Sign In
             </Button>
+            <LoginModal/>
             <Button
               display={{ base: "none", md: "inline-flex" }}
               fontSize={"sm"}
@@ -119,7 +154,69 @@ const Navbar = () => {
               }}
             >
               Sign Up
-            </Button>
+            </Button> */}
+            <Text w="70px" fontSize="12px" m="auto">
+              Track Order
+            </Text>
+            <Flex alignItems={"center"}>
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  rounded={"full"}
+                  variant={"link"}
+                  cursor={"pointer"}
+                  minW={0}
+                >
+                  
+                   <Box>
+                  {currentUser?( <Avatar 
+  size={"sm"} src={currentUser.photoURL} alt="abc"/>):<FaUserCircle />}
+                  </Box>
+                  <Flex gap={"5px"}>
+                 
+                    <Text fontSize={"12px"} w="60px" display={"block"}>
+                      {currentUser
+                        ? currentUser?.displayName || userDetails?.displayFirstName
+                        : "Sign In & Sign Up"}
+                    </Text>
+                  </Flex>
+                </MenuButton>
+                <MenuList>
+                  <MenuItem>
+                    <LoginModal />
+                  </MenuItem>
+                  <MenuItem>
+                    <ModalCom />
+                  </MenuItem>
+                  <MenuDivider />
+                  {currentUser ? (
+                    <MenuItem>
+                      {" "}
+                      <Text my="2" onClick={logout}>
+                        LogOut
+                      </Text>
+                    </MenuItem>
+                  ) : (
+                    ""
+                  )}
+                </MenuList>
+              </Menu>
+            </Flex>
+            {/* <LoginModal />
+            <ModalCom /> */}
+            {/* // for authentication */}
+            <Flex gap={"5px"}>
+              <FaRegHeart />
+              <Text w="50px" fontSize="12px" m="auto">
+                Wishlist
+              </Text>{" "}
+            </Flex>
+            <Flex gap={"5px"}>
+              <FaShoppingCart />
+              <Text w="50px" fontSize="12px" m="auto">
+                Cart
+              </Text>{" "}
+            </Flex>
           </Stack>
         </Flex>
 
@@ -127,7 +224,7 @@ const Navbar = () => {
           <MobileNav />
         </Collapse>
       </Box>
-    </div>
+    </Box>
   );
 };
 
@@ -361,10 +458,6 @@ const NAV_ITEMS = [
   },
   {
     label: "Learn Design",
-    href: "#",
-  },
-  {
-    label: "Hire Designers",
     href: "#",
   },
 ];

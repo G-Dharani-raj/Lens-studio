@@ -7,11 +7,11 @@
 }
 .productFilter_container,
 .products_container {
-  border: 1px solid blue;
+  border: 1px solid rgb(150, 215, 255);
 }
 
 .productFilter_container {
-  width: 22%;
+  width: 21%;
 }
 
 .products_container {
@@ -25,6 +25,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: rgb(227, 247, 255);
 }
 .total_products,
 .product_category,
@@ -81,7 +82,7 @@
 
     border: 1px solid green;
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, 49%);
     row-gap: 25px;
   }
 }

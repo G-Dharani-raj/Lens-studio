@@ -1,0 +1,45 @@
+.pro_filter_mother_container {
+  /* border: 1px solid red; */
+  width: 100%;
+}
+
+.frame_type_container {
+  width: 100%;
+}
+.frame_type_title {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: bolder;
+  color: rgb(65, 65, 65);
+
+  width: fit-content;
+  margin-left: 2%;
+  margin-top: 10px;
+}
+
+.frame_type_cards {
+  display: grid;
+  grid-template-columns: repeat(3, 25%);
+  gap: 10px;
+  margin-left: 2%;
+  margin-top: 10px;
+}
+
+.frame_type_single_card {
+  border: 1px solid rgb(208, 208, 208);
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.frame_type_single_card:hover{
+    border: 1px solid rgb(87, 87, 87);
+}
+.frame_type_name {
+  font-size: 12px;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: bolder;
+  color: rgb(105, 105, 105);
+  margin: 0 0 0 3px;
+}
+.frame_type_single_card > img {
+  /* border: 1px solid green; */
+}

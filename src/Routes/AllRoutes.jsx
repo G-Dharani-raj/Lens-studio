@@ -7,6 +7,8 @@ import HomePage from "../Components/HomePage/HomePage";
 import Products from "../Components/ProductPage/Products";
 import ProductCard from "../Components/ProductPage/ProductCard";
 import SignupCard from "../Cards/SignupCard";
+import Checkout from "../Components/Checkout/Checkout";
+import Shippings from "../Components/Checkout/Shippings";
 import ProductDetails from "../Components/ProductPage/ProductDetails";
 const AllRoutes = () => {
 	return (
@@ -20,6 +22,8 @@ const AllRoutes = () => {
 			<Route path="/admin" element={<Admin />} />
 			<Route path="/admin/add" element={<AdminAddPage />} />
 			<Route path="/signup" element={<SignupCard />} />
+			<Route path="/checkout" element={<Checkout />} />
+			<Route path="/shipping" element={<Shippings />} />
 			<Route path="*" element={<h1>123</h1>} />
 		</Routes>
 	);

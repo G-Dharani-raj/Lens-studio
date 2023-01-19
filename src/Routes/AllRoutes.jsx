@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Products from "../Components/ProductPage/Products";
-import HomePage from "../Components/HomePage/HomePage";
-import ProductCard from "../Components/ProductPage/ProductCard";
 import SignupCard from "../Cards/SignupCard";
+import Checkout from "../Components/Checkout/Checkout";
+import Shippings from "../Components/Checkout/Shippings";
+import HomePage from "../Components/HomePage/HomePage";
 import ProductDetails from "../Components/ProductPage/ProductDetails";
-
+import Products from "../Components/ProductPage/Products";
 const AllRoutes = () => {
   return (
     <Routes>
@@ -16,6 +16,8 @@ const AllRoutes = () => {
       <Route path="/payment" element={<h1>123</h1>} />
       <Route path="/checkout" element={<h1>123</h1>} />
       <Route path="/signup" element={<SignupCard />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/shipping" element={<Shippings />} />
       <Route path="*" element={<h1>123</h1>} />
     </Routes>
   );

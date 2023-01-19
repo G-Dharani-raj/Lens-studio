@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Checkout from "../components/Checkout/Checkout";
-import Shippings from "../components/Checkout/Shippings";
-import HomePage from "../components/HomePage/HomePage";
+import Checkout from "../Components/Checkout/Checkout";
+import Shippings from "../Components/Checkout/Shippings";
+import HomePage from "../Components/HomePage/HomePage";
 const AllRoutes = () => {
 	return (
 		<Routes>

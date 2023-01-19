@@ -1,9 +1,10 @@
-import { Box, Button, Heading, Input } from '@chakra-ui/react';
+import { Box, Button, Heading, Input, Stack } from '@chakra-ui/react';
 import { signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import React, { useState } from 'react'
-import { auth,db,provider } from "../FireBase/firebase";
 
+import { auth,db,provider } from "../FireBase/firebase";
+import "./card.css";
 const signInWithGoogle =async () => {
    try{
         const usrCredential =  await signInWithPopup(auth,provider)
@@ -57,32 +58,47 @@ const Login = () => {
       };
 
   return (
-    <div>
-        <Heading textAlign={"center"}>Sign In</Heading>
-      <Box w="30%" m="auto">
-        <Input
-          type="email"
-          placeholder="Email"
-          value={emailSignIn}
-          my="2"
-          onChange={(e) => setEmailSignIn(e.target.value)}
-        />
+    <Stack spacing={4} mx={"auto"} maxW={"lg"} py={2} px={2}>
+        
+      
+        
+        <div class="inputbox">
+            <input
+              required="required"
+              type="text"
+              value={emailSignIn}
+              onChange={(e) => setEmailSignIn(e.target.value)}
+            />
+            <span>Email</span>
+            <i></i>
+          </div>
         <br />
-        <Input
+        <div class="inputbox">
+            <input
+              required="required"
+              type="text"
+              value={passwordSignIn}
+              onChange={(e) => setPasswordSignIn(e.target.value)}
+            />
+            <span>Password</span>
+            <i></i>
+          </div>
+        {/* <Input
           type="password"
           placeholder="Password"
           my="2"
           value={passwordSignIn}
           onChange={(e) => setPasswordSignIn(e.target.value)}
-        />
-        <Button onClick={SignIn}>Sign In</Button>
+        /> */}
         <br />
-        <Button my="2" onClick={signInWithGoogle}>
+        <button class="btn" onClick={SignIn}>Sign In</button>
+       
+        <button class="btn"  onClick={signInWithGoogle}>
           Sign In Google
-        </Button>
+        </button>
         
-      </Box>
-    </div>
+      
+    </Stack>
   )
 }
 

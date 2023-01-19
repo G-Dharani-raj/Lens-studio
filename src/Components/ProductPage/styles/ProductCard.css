@@ -1,0 +1,98 @@
+.card_container {
+  color: rgb(1, 43, 117);
+  font-weight: 1000;
+  font-family: "Rajdhani", sans-serif;
+  border-radius: 17px;
+  max-height: auto;
+  padding: 10px 2px;
+  padding-left: 10px;
+  cursor: pointer;
+  padding-top: 20px;
+}
+
+.imag_container {
+  max-width: 100%;
+  overflow: hidden;
+}
+.imag_container > img {
+  width: 100%;
+  border-radius: 17px;
+}
+.imag_container > img:hover {
+  transform: scale(1.1);
+  transition: 0.8s ease-out;
+}
+.product_offer_container {
+  margin-left: -10px;
+  padding-left: 10px;
+  background: rgb(45, 190, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(45, 190, 255, 0.969625350140056) 7%,
+    rgba(240, 252, 255, 1) 100%
+  );
+  color: rgb(118, 85, 1);
+  font-size: 14px;
+}
+
+.rating_count_container {
+  width: fit-content;
+  border-radius: 50px;
+  padding: 3px 10px;
+  background-color: rgb(197, 233, 253);
+  font-size: 12px;
+  display: flex;
+  margin: 10px 0;
+  gap: 3px;
+}
+
+.star > img {
+  margin-top: 4px;
+}
+.rating_count {
+  color: rgb(118, 118, 118);
+}
+
+.product_tags_container {
+  color: rgb(71, 93, 102);
+  font-size: 13px;
+
+  display: flex;
+  justify-content: space-between;
+}
+.uppdown_icon {
+  margin: 0 3px;
+  color: rgb(41, 41, 41);
+}
+.tax {
+  color: grey;
+  margin-left: 8px;
+}
+
+.color_div {
+  display: flex;
+  gap: 5px;
+  margin-right: 40px;
+}
+
+.colors_sample {
+  border: 1px solid red;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: none;
+}
+.grey {
+  background-color: rgb(171, 27, 27);
+}
+.golden {
+  background-color: goldenrod;
+  border: none;
+}
+.blue {
+  background-color: rgb(22, 22, 255);
+}
+.color_count {
+  color: black;
+  font-weight: 700;
+}

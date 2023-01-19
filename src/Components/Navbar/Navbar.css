@@ -1,12 +1,14 @@
 .Navbar {
+  width: 95%;
   display: flex;
   justify-content: space-between;
+  margin: 0px;
 }
 .Navbar > ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin: 10px 0px;
 }
 
 .Navbar > ul > p {
@@ -14,7 +16,7 @@
   /* flex: 1; */
   margin: 0px;
   font-size: 10px;
-  padding: 0px 12px;
+  padding: 0px 10px;
 }
 @media all and (min-width: 0px) and (max-width: 1064px) {
   .Navbar {

@@ -2,6 +2,7 @@ import React from "react";
 import "./styles/ProductCard.css";
 import { StarIcon, UpDownIcon } from "@chakra-ui/icons";
 
+
 export default function ProductCard({
   product_name,
   product_price,
@@ -13,9 +14,12 @@ export default function ProductCard({
   size,
   tags,
 }) {
+
+  
+
   return (
     <>
-      <div className="card_container divss">
+      <div className="card_container divss" >
         {/* next div is for product image */}
         <div className="imag_container">
           <img src={product_image} alt="" />

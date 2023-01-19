@@ -9,6 +9,7 @@ const Admin = () => {
 			<AdminProducts />
 		</div>
 	);
+
 };
 
 export default Admin;

@@ -1,0 +1,109 @@
+.products_and_filter_container {
+  /* border: 1px solid red; */
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.productFilter_container,
+.products_container {
+  border: 1px solid blue;
+}
+
+.productFilter_container {
+  width: 22%;
+}
+
+.products_container {
+  width: 77%;
+}
+.product_listing_count_container {
+  /* border: 1px solid rgb(218, 152, 0); */
+  height: 8%;
+  width: 100%;
+  border-bottom: 1px solid rgb(149, 191, 215);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.total_products,
+.product_category,
+.sorting_filter_cont {
+  border: 1px solid grey;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 8px;
+}
+
+.product_cards_container {
+  width: 100%;
+  height: 90vh;
+  padding-top: 15px;
+  overflow-y: scroll;
+  /* border: 1px solid green; */
+  display: grid;
+  grid-template-columns: repeat(3, 29%);
+  justify-content: center;
+  gap: 20px;
+}
+.product_cards_container::-webkit-scrollbar {
+  display: none;
+}
+.divss {
+  border: 1px solid rgb(188, 204, 233);
+
+  border-radius: 17px;
+
+  transition: 0.3s ease;
+}
+.divss:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 6px 15px;
+  border: 1px solid rgb(149, 149, 149);
+}
+
+/* media queries  */
+
+@media (max-width: 1080px) {
+}
+
+/* responsive css style 
+@media (max-width: 998px) {
+} */
+
+@media (max-width: 1000px) {
+  .products_container {
+    width: 99%;
+  }
+  .product_cards_container {
+    width: 100%;
+    height: auto;
+
+    border: 1px solid green;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    row-gap: 25px;
+  }
+}
+
+@media (max-width: 530px) {
+  .product_listing_count_container {
+    height: 4%;
+  }
+  .productFilter_container {
+    display: none;
+  }
+
+  .products_container {
+    width: 99%;
+  }
+  .product_cards_container {
+    width: 100%;
+    height: auto;
+
+    border: 1px solid green;
+    display: grid;
+    grid-template-columns: repeat(1, 97%);
+    row-gap: 25px;
+  }
+}

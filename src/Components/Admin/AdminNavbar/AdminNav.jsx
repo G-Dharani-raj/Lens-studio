@@ -17,9 +17,14 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
-const Links = ["Dashboard", "Products", "Add Product", "Users"];
+const Links = [
+	{ name: "Dashboard", path: "/admin" },
+	{ name: "Products", path: "/admin" },
+	{ name: "Add Products", path: "/admin/add" },
+	{ name: "Users", path: "/admin/users" },
+];
 
-const NavLink = ({ children }) => (
+const NavLink = ({ children, path }) => (
 	<Link
 		px={2}
 		py={1}
@@ -28,7 +33,7 @@ const NavLink = ({ children }) => (
 			textDecoration: "none",
 			bg: useColorModeValue("gray.200", "gray.700"),
 		}}
-		href={"#"}
+		href={path}
 	>
 		{children}
 	</Link>
@@ -59,8 +64,10 @@ export default function AdminNav() {
 							spacing={4}
 							display={{ base: "none", md: "flex" }}
 						>
-							{Links.map((link) => (
-								<NavLink key={link}>{link}</NavLink>
+							{Links.map((e) => (
+								<NavLink key={e.name} path={e.path}>
+									{e.name}
+								</NavLink>
 							))}
 						</HStack>
 					</HStack>

@@ -82,14 +82,14 @@ export default function SignupCard() {
         displayFirstName,
         displayLastName,
         phone,
-        genderDetails,
+        
       });
 
       setEmailSignUp("");
       setPasswordSignUp("");
       setdisplayFirstNameSignUp("");
       setdisplayLastNameSignUp("");
-      setgender("");
+      
       setPhonenumber("");
       console.log("user: ", user);
     } catch (error)  {
@@ -230,7 +230,7 @@ export default function SignupCard() {
             <button onClick={SignUpFunc} class="btn">
             Sign up
 </button>
-            <br />
+            
             <button my="2" class="btn" onClick={signInWithGoogle}>
               Sign In Google
             </button>

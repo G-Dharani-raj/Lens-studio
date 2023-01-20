@@ -49,7 +49,7 @@ export default function AdminNav() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const navigate = useNavigate();
 	const location = useLocation();
-	console.log(location);
+	// console.log(location);
 	const handleSearch = (e) => {
 		if (e.key === "Enter") {
 			localStorage.setItem("search_term", e.target.value);

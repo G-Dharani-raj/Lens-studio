@@ -28,18 +28,20 @@ const AdminPagination = ({ currentPage, setPage }) => {
 	const pages = Math.ceil(data.length / 15);
 
 	const handleChange = (value) => {
-		setPage((prev) => prev + value);
+		setPage((prev) => Number(prev) + value);
 	};
 	const handlePress = (e) => {
 		if (e.key === "Enter") {
-			setPage(e.target.value);
+			if (e.target.value > pages) return setPage(pages);
+			if (e.target.value <= 0) return setPage(1);
+			setPage(Number(e.target.value));
 		}
 	};
 	useEffect(() => {
-		let response = getRequestAPI().then((res) => setData(res));
+		getRequestAPI().then((res) => setData(res));
 		// console.log(response);
 	}, []);
-	// console.log(data);
+	// console.log(currentPage);
 
 	return (
 		<Box>
@@ -67,12 +69,9 @@ const AdminPagination = ({ currentPage, setPage }) => {
 							min={1}
 							max={pages}
 							onKeyDown={handlePress}
+							value={currentPage}
 						>
 							<NumberInputField />
-							<NumberInputStepper>
-								<NumberIncrementStepper />
-								<NumberDecrementStepper />
-							</NumberInputStepper>
 						</NumberInput>
 					</Flex>
 				</Flex>

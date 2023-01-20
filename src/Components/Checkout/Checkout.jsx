@@ -44,6 +44,11 @@ const Checkout = () => {
     }
     const handleNavi = ()=>{
         if(value){
+            toast({
+                title: `Checkout Done`,
+                status: 'success',
+                isClosable: true,
+              })
             navigate("/shipping");
             
         }
@@ -55,6 +60,9 @@ const Checkout = () => {
               })
             setopts(false);
         }
+    }
+    const handlePayClick = ()=>{
+        navigate("/payment");
     }
   return (
     <div>
@@ -70,7 +78,7 @@ const Checkout = () => {
         <div style={{display:"flex",height:"auto",width:"85%",margin:"auto"}}>
             <div style={{flex:"7"}}>
                 <div id="clip">
-                    <span><TbCircle1 fontSize="25px"/> Registration & Login</span><span><TbCircle2 fontSize="25px"/> Shipping Address</span><span><TbCircle3 fontSize="25px"/> Payment & Discount</span>
+                    <span  style={{color:"#363636", backgroundColor:"rgb(242, 245, 248)"}}><TbCircle1 fontSize="25px"/> Registration & Login</span><span><TbCircle2 fontSize="25px"/> Shipping Address</span><span onClick={handlePayClick}><TbCircle3 fontSize="25px"/> Payment & Discount</span>
                 </div>
                 <div style={{width:"95%",margin:"auto",marginTop:"50px"}}>
                     <Text fontWeight="bold" fontFamily="sans-serif">MOBILE</Text>

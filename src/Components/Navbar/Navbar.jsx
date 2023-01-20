@@ -49,7 +49,7 @@ const Navbar = () => {
 
   const { isOpen, onToggle } = useDisclosure();
   return (
-    <Box>
+    <Box bg='white' zIndex={'99'}   position='sticky' top='0' maxWidth='100%'>
       <div className="Navbar">
         <ul>
           <p>Do More, Be More</p>
@@ -215,6 +215,17 @@ const Navbar = () => {
             <Flex display={{ base: "none", md: "flex" }} ml={10}>
               <DesktopNav />
             </Flex>
+            {/* <LoginModal />
+            <ModalCom /> */}
+            {/* // for authentication */}
+            {/* <Flex gap={"5px"}>
+              <FaRegHeart />
+              
+            </Flex>
+            <Flex gap={"5px"}>
+              <FaShoppingCart />
+             
+            </Flex> */}
           </Box>
         </Flex>
 

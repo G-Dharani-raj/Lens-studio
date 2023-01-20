@@ -1,7 +1,8 @@
-import { Box, Button, Heading, Input, Stack } from '@chakra-ui/react';
+import { Box, Button, Heading, Input, Stack, Text } from '@chakra-ui/react';
 import { signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 import { auth,db,provider } from "../FireBase/firebase";
 import "./card.css";
@@ -96,8 +97,11 @@ const Login = () => {
         <button class="btn"  onClick={signInWithGoogle}>
           Sign In Google
         </button>
-        
-      
+        <Text>
+        Are you a Admin ?
+          <Link to="/adminlogin">Login</Link>
+          </Text>
+          
     </Stack>
   )
 }

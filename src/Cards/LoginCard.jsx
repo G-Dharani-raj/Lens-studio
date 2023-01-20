@@ -97,8 +97,11 @@ const Login = () => {
         <button class="btn"  onClick={signInWithGoogle}>
           Sign In Google
         </button>
-       
-      
+        <Text>
+        Are you a Admin ?
+          <Link to="/adminlogin">Login</Link>
+          </Text>
+          
     </Stack>
   )
 }

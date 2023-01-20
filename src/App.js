@@ -1,6 +1,7 @@
 import "./App.css";
 import HomePage from "./Components/HomePage/HomePage";
 import "bootstrap/dist/css/bootstrap.min.css";
+import AllRoutes from "./Routes/AllRoutes";
 
 
 
@@ -8,8 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <div>
-      <HomePage />
-      
+      {/* <HomePage /> */}
+      <AllRoutes/>
       
     </div>
   );

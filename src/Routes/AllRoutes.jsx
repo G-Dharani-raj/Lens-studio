@@ -10,6 +10,7 @@ import SignupCard from "../Cards/SignupCard";
 import Checkout from "../Components/Checkout/Checkout";
 import Shippings from "../Components/Checkout/Shippings";
 import ProductDetails from "../Components/ProductPage/ProductDetails";
+import AdminLoginCard from "../Cards/AdminLoginCard";
 const AllRoutes = () => {
 	return (
 		<Routes>
@@ -20,6 +21,7 @@ const AllRoutes = () => {
 			<Route path="/payment" element={<h1>123</h1>} />
 			<Route path="/admin" element={<Admin />} />
 			<Route path="/admin/add" element={<AdminAddPage />} />
+			
 			<Route path="/signup" element={<SignupCard />} />
 			<Route path="/checkout" element={<Checkout />} />
 			<Route path="/shipping" element={<Shippings />} />

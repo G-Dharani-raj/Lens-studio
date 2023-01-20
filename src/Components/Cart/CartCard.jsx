@@ -10,9 +10,17 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-const CartCard = () => {
+const CartCard = ({
+  product_image,
+  product_name,
+  product_price,
+  quantity,
+  id,
+  updateQuantity,
+  removeCartItem,
+}) => {
   return (
-    <Box>
+    <Box mt="20px">
       <Card
         direction={{ base: "column", sm: "row" }}
         overflow="hidden"
@@ -22,17 +30,14 @@ const CartCard = () => {
           <Image
             objectFit="cover"
             maxW={{ base: "100%", sm: "200px" }}
-            src="https://static5.lenskart.com/media/catalog/product/pro/1/thumbnail/628x301/9df78eab33525d08d6e5fb8d27136e95//l/i/purple-full-rim-round-lenskart-air-classic-la-e15018-c2-eyeglasses_g_8647_09_09_2022.jpg"
+            src={product_image}
             alt="Caffe Latte"
           />
         </Flex>
         <Stack padding={"30px"}>
           <Flex gap={6}>
-            <Text w="350px">
-              FREE product Purple Full Rim Round Lenskart Air Classic La
-              E15018-C2 Eyeglasses
-            </Text>
-            <Text>1999</Text>
+            <Text w="350px">{product_name}</Text>
+            <Text>{product_price}</Text>
           </Flex>{" "}
           <Flex gap={6}>
             <Text w="350px">Hydrophobic Anti-Glare</Text>
@@ -44,13 +49,17 @@ const CartCard = () => {
           <Divider borderBottom={"1px dashed"} />
           <Flex gap={6}>
             <Text w="350px">Final Price</Text>
-            <Text>1999</Text>
+            <Text>{+product_price + 501}</Text>
           </Flex>
           <Divider borderBottom={"1px dashed"} />
           <Box>
-            <Button>Remove</Button>
-            <Button>1</Button>
-            <Button>Repeate</Button>
+            <Button onClick={() => removeCartItem(id)}>Remove</Button>
+            <Button>{quantity}</Button>
+            <Button
+              onClick={() => updateQuantity(id, { quantity: quantity + 1 })}
+            >
+              Repeate
+            </Button>
           </Box>
         </Stack>
       </Card>

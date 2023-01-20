@@ -2,6 +2,7 @@ import { SimpleGrid } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getData, getDataPerPage } from "../../../redux/Admin/admin.actions";
+import AdminSkeleton from "../AdminSkeleton/AdminSkeleton";
 import AdminProductCard from "./AdminProductCard";
 
 const AdminProducts = ({ currentPage }) => {
@@ -12,7 +13,7 @@ const AdminProducts = ({ currentPage }) => {
 		getDataPerPage(dispatch, currentPage);
 	}, [currentPage, dispatch]);
 
-	if (loading) return <h1>Loading...</h1>;
+	if (loading) return <AdminSkeleton />;
 	return (
 		<>
 			<SimpleGrid columns={{ base: 3, lg: 4, md: 2, sm: 1 }} gap={5}>

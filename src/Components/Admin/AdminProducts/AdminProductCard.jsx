@@ -59,7 +59,6 @@ const AdminProductCard = ({
 				}}
 			>
 				<CardBody>
-					<h1>{id}</h1>
 					<Image
 						src={product_image}
 						alt={product_name}

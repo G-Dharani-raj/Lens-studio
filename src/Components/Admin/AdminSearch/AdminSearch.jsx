@@ -1,17 +1,22 @@
 import {
+	Box,
 	Center,
+	Heading,
 	Input,
 	InputGroup,
 	InputLeftElement,
 	SimpleGrid,
+	VStack,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import AdminProductCard from "../AdminProducts/AdminProductCard";
+import AdminSkeleton from "../AdminSkeleton/AdminSkeleton";
 
 const AdminSearch = () => {
 	const [suggestions, setSuggestions] = useState("");
+	const [loading, setLoading] = useState(false);
 	const debounce = (func) => {
 		let timer;
 		return function (...args) {
@@ -26,11 +31,15 @@ const AdminSearch = () => {
 
 	const handleChange = (value) => {
 		if (value === "") return;
+		setLoading(true);
 		axios
 			.get(
 				`https://lazy-red-armadillo-garb.cyclic.app/all_Eyeglasses?q=${value}`
 			)
-			.then((res) => setSuggestions(res.data));
+			.then((res) => {
+				setLoading(false);
+				setSuggestions(res.data);
+			});
 	};
 
 	const optimizedFn = useCallback(debounce(handleChange), []);
@@ -43,28 +52,43 @@ const AdminSearch = () => {
 			.then((res) => setSuggestions(res.data));
 	}, []);
 	console.log(suggestions);
+	if (loading) return <AdminSkeleton />;
 	return (
 		<>
-			<Center>
-				<InputGroup maxW={"60%"}>
-					<InputLeftElement
-						pointerEvents="none"
-						children={<HiMagnifyingGlass />}
-					/>
-					<Input
-						type="text"
-						bg="white"
-						onChange={(e) => optimizedFn(e.target.value)}
-					/>
-				</InputGroup>
-			</Center>
-			<SimpleGrid columns={{ base: 3, lg: 4, md: 2, sm: 1 }} gap={5}>
-				{suggestions.length > 0
-					? suggestions.map((e) => (
+			<VStack gap={5} py={10}>
+				<Center minW={"100%"}>
+					<InputGroup maxW={"60%"}>
+						<InputLeftElement
+							pointerEvents="none"
+							children={<HiMagnifyingGlass />}
+						/>
+						<Input
+							type="text"
+							bg="white"
+							onChange={(e) => optimizedFn(e.target.value)}
+						/>
+					</InputGroup>
+				</Center>
+				<Center>
+					<Heading size="sm">
+						{suggestions.length} Results found
+					</Heading>
+				</Center>
+				{suggestions.length > 0 ? (
+					<SimpleGrid
+						columns={{ base: 3, lg: 4, md: 2, sm: 1 }}
+						gap={5}
+					>
+						{suggestions.map((e) => (
 							<AdminProductCard key={e.id} {...e} />
-					  ))
-					: null}
-			</SimpleGrid>
+						))}
+					</SimpleGrid>
+				) : (
+					<Center>
+						<Heading>No results found</Heading>
+					</Center>
+				)}
+			</VStack>
 		</>
 	);
 };

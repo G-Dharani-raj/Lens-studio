@@ -20,6 +20,7 @@ import {
   useDisclosure,
   MenuDivider,
   MenuList,
+  useColorMode,
   Avatar,
   Menu,
   MenuItem,
@@ -30,6 +31,8 @@ import {
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  MoonIcon,
+  SunIcon,
 } from "@chakra-ui/icons";
 import ModalCom from "../../Modal/SignUpModal";
 import LoginModal from "../../Modal/LoginModal";
@@ -39,7 +42,7 @@ import Logo from "./lens.png";
 import { FaRegHeart, FaShoppingCart, FaUserCircle } from "react-icons/fa";
 const Navbar = () => {
   // for authentication
-
+  const { colorMode, toggleColorMode } = useColorMode();
   const { currentUser, userDetails } = UseAuth();
   console.log("currentUser: ", currentUser);
   // for authentication
@@ -97,125 +100,133 @@ const Navbar = () => {
             />
           </Flex>
           <Box flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-            <Flex display={{ base: "none", md: "flex" }} ml={10}>
-              <Image src={Logo} w="130px" m="auto" />
-              <Image
-                src="https://static.lenskart.com/media/mobile/images/phone_number.svg"
-                w={"120px"}
-                h="40px"
-                marginLeft={"70px"}
-              />
-              {/* this is input tag that will help you to search parameter  */}
-              <Input
-                w="600px"
-                marginLeft="20px"
-                placeholder="What are Looking for "
-              />
+            <Flex
+              display={{ base: "none", md: "flex" }}
+              ml={10}
+              justifyContent="space-between"
+              m="auto"
+              gap="10px"
+            >
+              <Flex w="20%" gap={"20%"}>
+                <Image src={Logo} w="130px" m="auto" />
+
+                <Image
+                  src="https://static.lenskart.com/media/mobile/images/phone_number.svg"
+                  // marginLeft={"70px"}
+                  w={{ base: "0px", md: "0px", lg: "90px", xl: "130px" }}
+                />
+              </Flex>
+              <Box w="40%">
+                <Input
+                  // marginLeft="20px"
+                  placeholder="What are Looking for "
+                />
+              </Box>
+              <Box w="10%" alignItems={"center"}>
+                <Stack
+                  flex={{ base: 1, md: 0 }}
+                  justifyContent={"space-evenly"}
+                  direction={"row"}
+                  alignItems={"center"}
+                  spacing={7}
+                >
+                  {/* <Text w="70px" fontSize="12px" m="auto">
+              Track Order
+            </Text> */}
+                  {/* <Flex alignItems={"center"}></Flex> */}
+                  {/* <LoginModal />
+            <ModalCom /> */}
+                  {/* // for authentication */}
+                  <Flex gap={"5px"}>
+                    <FaRegHeart />
+                    {/* <Text w="50px" fontSize="12px" m="auto">
+                Wishlist
+              </Text>{" "} */}
+                  </Flex>
+                  <Flex gap={"5px"}>
+                    <FaShoppingCart />
+                    {/* <Text w="50px" fontSize="12px" m="auto">
+                Cart
+              </Text>{" "} */}
+                  </Flex>
+                  <Menu>
+                    <MenuButton
+                      as={Button}
+                      rounded={"full"}
+                      variant={"link"}
+                      cursor={"pointer"}
+                      minW={0}
+                    >
+                      {/* <Box>
+                  {currentUser?( <Avatar 
+                      size={"sm"} src={currentUser.photoURL} alt="abc"/>):<FaUserCircle  />}
+                  </Box> */}
+                      <Flex gap={"5px"}>
+                        <Box>
+                          {currentUser ? (
+                            <Avatar
+                              size={"sm"}
+                              src={currentUser.photoURL}
+                              alt="abc"
+                            />
+                          ) : (
+                            <FaUserCircle />
+                          )}
+                        </Box>
+                        <Text fontSize={"12px"} w="60px" display={"block"}>
+                          {currentUser
+                            ? currentUser?.displayName ||
+                              userDetails?.displayFirstName
+                            : "Sign In & Sign Up"}
+                        </Text>
+                      </Flex>
+                    </MenuButton>
+                    <MenuList>
+                      <MenuItem>
+                        <LoginModal />
+                      </MenuItem>
+                      <MenuItem>
+                        <ModalCom />
+                      </MenuItem>
+                      <MenuDivider />
+                      {currentUser ? (
+                        <MenuItem>
+                          {" "}
+                          <Text my="2" onClick={logout}>
+                            LogOut
+                          </Text>
+                        </MenuItem>
+                      ) : (
+                        ""
+                      )}
+                    </MenuList>
+                  </Menu>
+                </Stack>
+              </Box>
+              <Box
+                w={{ base: "0px", md: "0px", lg: "0px", xl: "80px" }}
+                display={{ base: "none", xl: "block" }}
+              >
+                <Button onClick={toggleColorMode}>
+                  {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+                </Button>
+              </Box>
             </Flex>{" "}
             <Flex display={{ base: "none", md: "flex" }} ml={10}>
               <DesktopNav />
             </Flex>
-          </Box>
-
-          <Stack
-            flex={{ base: 1, md: 0 }}
-            justify={"flex-end"}
-            direction={"row"}
-            spacing={6}
-          >
-            {/* // for authentication */}
-            {/* <Text>
-              {currentUser
-                ? userDetails?.displayFirstName || currentUser?.email
-                : "Person"}
-            </Text> */}
-            {/* <Text my="2" onClick={logout}>
-              Logout
-            </Text> */}
-            {/* <Button
-              as={"a"}
-              fontSize={"sm"}
-              fontWeight={400}
-              variant={"link"}
-              href={"#"}
-            >
-              Sign In
-            </Button>
-            <LoginModal/>
-            <Button
-              display={{ base: "none", md: "inline-flex" }}
-              fontSize={"sm"}
-              fontWeight={600}
-              color={"white"}
-              bg={"pink.400"}
-              href={"#"}
-              _hover={{
-                bg: "pink.300",
-              }}
-            >
-              Sign Up
-            </Button> */}
-            <Text w="70px" fontSize="12px" m="auto">
-              Track Order
-            </Text>
-            <Flex alignItems={"center"}>
-              <Menu>
-                <MenuButton
-                  as={Button}
-                  rounded={"full"}
-                  variant={"link"}
-                  cursor={"pointer"}
-                  minW={0}
-                >
-                  
-                   <Box>
-                  {currentUser?( <Avatar 
-  size={"sm"} src={currentUser.photoURL} alt="abc"/>):<FaUserCircle />}
-                  </Box>
-                  <Flex gap={"5px"}>
-                 
-                    <Text fontSize={"12px"} w="60px" display={"block"}>
-                      {currentUser
-                        ? currentUser?.displayName || userDetails?.displayFirstName
-                        : "Sign In & Sign Up"}
-                    </Text>
-                  </Flex>
-                </MenuButton>
-                <MenuList>
-                  <MenuItem>
-                    <LoginModal />
-                  </MenuItem>
-                  <MenuItem>
-                    <ModalCom />
-                  </MenuItem>
-                  <MenuDivider />
-                  {currentUser ? (
-                    <MenuItem>
-                      {" "}
-                      <Text my="2" onClick={logout}>
-                        LogOut
-                      </Text>
-                    </MenuItem>
-                  ) : (
-                    ""
-                  )}
-                </MenuList>
-              </Menu>
-            </Flex>
             {/* <LoginModal />
             <ModalCom /> */}
             {/* // for authentication */}
-            <Flex gap={"5px"}>
+            {/* <Flex gap={"5px"}>
               <FaRegHeart />
-              <Text w="50px" fontSize="12px" m="auto">
-                Wishlist
-              </Text>{" "}
+              
             </Flex>
             <Flex gap={"5px"}>
               <FaShoppingCart />
              
-            </Flex>
-          </Stack>
+            </Flex> */}
+          </Box>
         </Flex>
 
         <Collapse in={isOpen} animateOpacity>
@@ -240,7 +251,7 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Link
                 p={2}
-                href={navItem.href ?? "#"}
+                href={navItem.rute ?? "#"}
                 fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
@@ -266,9 +277,9 @@ const DesktopNav = () => {
                   {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
                   ))}
-                  <Flex>
+                  {/* <Flex>
                     <h1>Neww</h1>
-                  </Flex>
+                  </Flex> */}
                 </Flex>
               </PopoverContent>
             )}
@@ -387,7 +398,8 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-    label: "Inspiration",
+    label: "EYEGLASSES",
+    rute: "/products",
     children: [
       {
         label: "Explore Design Work",
@@ -402,7 +414,8 @@ const NAV_ITEMS = [
     ],
   },
   {
-    label: "Find Work",
+    label: "COMPUTER GLASSES",
+    rute: "/products",
     children: [
       {
         label: "Job Board",
@@ -417,15 +430,14 @@ const NAV_ITEMS = [
     ],
   },
   {
-    label: "Learn Design",
+    label: "KIDS GLASSES",
+    rute: "/products",
     href: "#",
   },
+
   {
-    label: "Hire Designers",
-    href: "#",
-  },
-  {
-    label: "Inspiration",
+    label: "CONTACT LENSES",
+    rute: "/products",
     children: [
       {
         label: "Explore Design Work",
@@ -440,7 +452,8 @@ const NAV_ITEMS = [
     ],
   },
   {
-    label: "Find Work",
+    label: "SUNGLASSES",
+    rute: "/products",
     children: [
       {
         label: "Job Board",
@@ -455,7 +468,13 @@ const NAV_ITEMS = [
     ],
   },
   {
-    label: "Learn Design",
+    label: "HOME EYE-TEST",
+    rute: "/products",
+    href: "#",
+  },
+  {
+    label: "STORE LOCATOR",
+    rute: "/products",
     href: "#",
   },
 ];

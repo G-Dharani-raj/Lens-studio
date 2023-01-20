@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Input, Stack, Text } from '@chakra-ui/react';
+import { Box, Button, Heading, Image, Input, Stack, Text } from '@chakra-ui/react';
 import { signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import React, { useState } from 'react'
@@ -60,7 +60,7 @@ const Login = () => {
 
   return (
     <Stack spacing={4} mx={"auto"} maxW={"lg"} py={2} px={2}>
-        
+        <Image src="https://static1.lenskart.com/media/desktop/img/DesignStudioIcons/DesktopLoginImage.svg" alt='img'/>
       
         
         <div class="inputbox">

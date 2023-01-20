@@ -17,12 +17,13 @@ import {
 	Input,
 	InputGroup,
 	InputLeftElement,
+	Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useLocation, useNavigate } from "react-router-dom";
 import AdminSearchPage from "../AdminSearchPage";
-
+import Logo from "./lens.png";
 import { Link as Routerlink } from "react-router-dom";
 const Links = [
 	{ name: "Dashboard", path: "/admin" },
@@ -73,7 +74,9 @@ export default function AdminNav() {
 						onClick={isOpen ? onClose : onOpen}
 					/>
 					<HStack spacing={8} alignItems={"center"}>
-						<Box>Logo</Box>
+						<Box>
+							<Image src={Logo} w="130px" m="auto" />
+						</Box>
 						<HStack
 							as={"nav"}
 							spacing={4}
@@ -87,7 +90,10 @@ export default function AdminNav() {
 						</HStack>
 					</HStack>
 					{location.pathname !== "/admin/search" ? (
-						<InputGroup maxW={"60%"}>
+						<InputGroup
+							maxW={"60%"}
+							display={{ base: "none", md: "flex" }}
+						>
 							<InputLeftElement
 								pointerEvents="none"
 								children={<HiMagnifyingGlass />}
@@ -130,10 +136,25 @@ export default function AdminNav() {
 				{isOpen ? (
 					<Box pb={4} display={{ md: "none" }}>
 						<Stack as={"nav"} spacing={4}>
-							{Links.map((link) => (
-								<NavLink key={link}>{link}</NavLink>
+							{Links.map((e) => (
+								<NavLink key={`${e.name}mobile`} path={e.path}>
+									{e.name}
+								</NavLink>
 							))}
 						</Stack>
+						{location.pathname !== "/admin/search" ? (
+							<InputGroup maxW={"60%"}>
+								<InputLeftElement
+									pointerEvents="none"
+									children={<HiMagnifyingGlass />}
+								/>
+								<Input
+									type="text"
+									bg="white"
+									onKeyDown={handleSearch}
+								/>
+							</InputGroup>
+						) : null}
 					</Box>
 				) : null}
 			</Box>

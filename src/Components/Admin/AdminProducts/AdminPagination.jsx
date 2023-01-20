@@ -25,6 +25,7 @@ import { getRequestAPI } from "../../util/getRequestAPI";
 
 const AdminPagination = ({ currentPage, setPage }) => {
 	const [data, setData] = useState([]);
+	const [inputBox, setInputBox] = useState(1);
 	const pages = Math.ceil(data.length / 15);
 
 	const handleChange = (value) => {
@@ -69,9 +70,13 @@ const AdminPagination = ({ currentPage, setPage }) => {
 							min={1}
 							max={pages}
 							onKeyDown={handlePress}
-							value={currentPage}
+							value={inputBox}
 						>
-							<NumberInputField />
+							<NumberInputField
+								onChange={(e) =>
+									setInputBox(Number(e.target.value))
+								}
+							/>
 						</NumberInput>
 					</Flex>
 				</Flex>

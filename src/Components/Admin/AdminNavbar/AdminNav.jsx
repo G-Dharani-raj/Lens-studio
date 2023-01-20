@@ -23,6 +23,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useLocation, useNavigate } from "react-router-dom";
 import AdminSearchPage from "../AdminSearchPage";
 
+import { Link as Routerlink } from "react-router-dom";
 const Links = [
 	{ name: "Dashboard", path: "/admin" },
 	{ name: "Products", path: "/admin" },
@@ -116,10 +117,11 @@ export default function AdminNav() {
 								/>
 							</MenuButton>
 							<MenuList>
-								<MenuItem>Link 1</MenuItem>
-								<MenuItem>Link 2</MenuItem>
-								<MenuDivider />
-								<MenuItem>Link 3</MenuItem>
+								<MenuItem>
+									<Routerlink to="/adminlogin">
+										Logout
+									</Routerlink>
+								</MenuItem>
 							</MenuList>
 						</Menu>
 					</Flex>

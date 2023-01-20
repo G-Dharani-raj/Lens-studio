@@ -12,6 +12,7 @@ import Shippings from "../Components/Checkout/Shippings";
 import ProductDetails from "../Components/ProductPage/ProductDetails";
 import AdminUpdatePage from "../Components/Admin/AdminUpdatePage";
 import AdminSearchPage from "../Components/Admin/AdminSearchPage";
+import AdminUsersPage from "../Components/Admin/AdminUsersPage";
 const AllRoutes = () => {
 	return (
 		<Routes>
@@ -24,6 +25,8 @@ const AllRoutes = () => {
 			<Route path="/admin/add" element={<AdminAddPage />} />
 			<Route path="/admin/update" element={<AdminUpdatePage />} />
 			<Route path="/admin/search" element={<AdminSearchPage />} />
+			<Route path="/admin/users" element={<AdminUsersPage />} />
+			<Route path="/adminlogin" element={<AdminLoginCard />} />
 			<Route path="/signup" element={<SignupCard />} />
 			<Route path="/checkout" element={<Checkout />} />
 			<Route path="/shipping" element={<Shippings />} />

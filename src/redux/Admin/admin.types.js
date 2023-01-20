@@ -1,0 +1,12 @@
+export const ADMIN_GET_LOADING = "admin/get/loading";
+export const ADMIN_GET_ERROR = "admin/get/error";
+export const ADMIN_GET_SUCCESS = "admin/get/success";
+export const ADMIN_UPDATE_LOADING = "admin/update/loading";
+export const ADMIN_UPDATE_ERROR = "admin/update/error";
+export const ADMIN_UPDATE_SUCCESS = "admin/update/success";
+export const ADMIN_DELETE_LOADING = "admin/delete/loading";
+export const ADMIN_DELETE_ERROR = "admin/delete/error";
+export const ADMIN_DELETE_SUCCESS = "admin/delete/success";
+export const ADMIN_ADD_LOADING = "admin/add/loading";
+export const ADMIN_ADD_ERROR = "admin/add/error";
+export const ADMIN_ADD_SUCCESS = "admin/add/success";

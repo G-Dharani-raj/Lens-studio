@@ -46,7 +46,7 @@ const Navbar = () => {
 
   const { isOpen, onToggle } = useDisclosure();
   return (
-    <Box>
+    <Box bg='white' zIndex={'99'}   position='sticky' top='0' maxWidth='100%'>
       <div className="Navbar">
         <ul>
           <p>Do More, Be More</p>
@@ -213,9 +213,7 @@ const Navbar = () => {
             </Flex>
             <Flex gap={"5px"}>
               <FaShoppingCart />
-              <Text w="50px" fontSize="12px" m="auto">
-                Cart
-              </Text>{" "}
+             
             </Flex>
           </Stack>
         </Flex>

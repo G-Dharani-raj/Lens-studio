@@ -79,3 +79,26 @@ export const frame_Shape = [
     id: 10,
   },
 ];
+
+export const color_options = [
+  "Brown",
+  "Grey", 
+  "Black",
+  "Golden",
+  "Silver",
+  "Blue",
+  "Pink",
+  "Transperent",
+  "Purple",
+  "Maroon",
+  "White",
+  "Rosegold",
+  "Copper",
+  "Violet",
+  "Multicolour",
+  "Yellow",
+  "Orange",
+  "Metalic",
+  "Green",
+  "Gunmetal"
+]

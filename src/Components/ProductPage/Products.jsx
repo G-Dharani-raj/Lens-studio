@@ -4,6 +4,8 @@ import { Image } from "@chakra-ui/react";
 import ProductCard from "./ProductCard";
 import { useNavigate } from "react-router-dom";
 import ProductFilter from "./ProductFilter";
+import Navbar from "../Navbar/Navbar";
+import ProductInfoListing from "./ProductInfoListing";
 
 const getData = async () => {
   return await fetch(
@@ -25,6 +27,9 @@ export default function Products() {
   }, []);
   console.log("outside data", data);
   return (
+    <>
+    <Navbar/>
+
     <div className="product_page_mother_container">
       {/* very first banner  container */}
       <div className="product_page_banner">
@@ -36,9 +41,7 @@ export default function Products() {
         </div>
         <div className="products_container">
           <div className="product_listing_count_container">
-            <div className="total_products">total products : 95</div>
-            <div className="product_category">Eyeglasses</div>
-            <div className="sorting_filter_cont">sort by price</div>
+           <ProductInfoListing/>
           </div>
           {/* next div is for whole products cards */}
           <div className="product_cards_container">
@@ -58,5 +61,6 @@ export default function Products() {
         </div>
       </div>
     </div>
+    </>
   );
 }

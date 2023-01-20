@@ -1,6 +1,7 @@
 .pro_filter_mother_container {
   /* border: 1px solid red; */
   width: 100%;
+  overflow-y: auto;
 }
 
 .frame_type_container {
@@ -30,8 +31,8 @@
   cursor: pointer;
   transition: 0.3s ease;
 }
-.frame_type_single_card:hover{
-    border: 1px solid rgb(87, 87, 87);
+.frame_type_single_card:hover {
+  border: 1px solid rgb(87, 87, 87);
 }
 .frame_type_name {
   font-size: 12px;
@@ -40,6 +41,42 @@
   color: rgb(105, 105, 105);
   margin: 0 0 0 3px;
 }
-.frame_type_single_card > img {
+/* .frame_type_single_card > img {
   /* border: 1px solid green; */
+
+.color_filter_container {
+  /* border: 1px solid red; */
+  margin-top: 17px;
+}
+.color_filters_options_div {
+  height: 200px;
+  overflow-y: auto;
+  margin-top: 10px;
+  border-top: 1px solid rgb(196, 196, 196);
+}
+
+.color_options {
+  font-size: 15px;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: bolder;
+  color: rgb(85, 85, 85);
+}
+.color_options > input {
+  margin: 0 10px 0 5px;
+}
+.color_option_conunt{
+  color: rgb(139, 138, 138);
+  margin-left: 5px;
+}
+
+.brand_filter_container{
+margin-top: 10px;
+  border: 1px solid rgb(224, 224, 224);
+}
+
+.brands_title{
+  font-family: "Rajdhani", sans-serif;
+  font-weight: bolder;
+  color: rgb(61, 61, 61);
+  margin-left: -10px;
 }

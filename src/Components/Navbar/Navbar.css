@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   margin: 0px;
+ 
 }
 .Navbar > ul {
   display: flex;

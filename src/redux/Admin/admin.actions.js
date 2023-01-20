@@ -1,5 +1,7 @@
+import axios from "axios";
 import { deleteDataAPI } from "../../Components/util/deleteDataAPI";
 import { getRequestAPI } from "../../Components/util/getRequestAPI";
+import { getRequestPerPage } from "../../Components/util/getRequestPerPage";
 import { patchDataAPI } from "../../Components/util/patchDataAPI";
 import { postDataAPI } from "../../Components/util/postDataAPI";
 import {
@@ -27,12 +29,22 @@ export const getData = async (dispatch) => {
 		dispatch({ type: ADMIN_GET_ERROR });
 	}
 };
+export const getDataPerPage = async (dispatch, page = 1) => {
+	dispatch({ type: ADMIN_GET_LOADING });
+	try {
+		let data = await getRequestPerPage(page);
+		// console.log(data);
+		dispatch({ type: ADMIN_GET_SUCCESS, payload: data });
+	} catch (e) {
+		dispatch({ type: ADMIN_GET_ERROR });
+	}
+};
 
 export const updateData = async (dispatch, id, payload) => {
 	dispatch({ type: ADMIN_UPDATE_LOADING });
 	try {
 		let data = await patchDataAPI(id, payload);
-		dispatch({ type: ADMIN_UPDATE_SUCCESS, payload: data });
+		dispatch({ type: ADMIN_UPDATE_SUCCESS });
 	} catch (e) {
 		dispatch({ type: ADMIN_UPDATE_ERROR });
 	}
@@ -42,17 +54,21 @@ export const addData = async (dispatch, payload) => {
 	dispatch({ type: ADMIN_ADD_LOADING });
 	try {
 		let data = await postDataAPI(payload);
-		dispatch({ type: ADMIN_ADD_SUCCESS, payload: data });
+		dispatch({ type: ADMIN_ADD_SUCCESS });
 	} catch (e) {
 		dispatch({ type: ADMIN_ADD_ERROR });
 	}
 };
 
-export const removeData = async (dispatch, id) => {
+export const removeData = async (dispatch, id, page) => {
 	dispatch({ type: ADMIN_DELETE_LOADING });
 	try {
 		let data = await deleteDataAPI(id);
-		dispatch({ type: ADMIN_DELETE_SUCCESS, payload: data });
+		let res = await axios.get(
+			`https://lazy-red-armadillo-garb.cyclic.app/all_Eyeglasses?_limit=15&_page=${page}`
+		);
+		console.log(res.data);
+		dispatch({ type: ADMIN_DELETE_SUCCESS });
 	} catch (e) {
 		dispatch({ type: ADMIN_DELETE_ERROR });
 	}

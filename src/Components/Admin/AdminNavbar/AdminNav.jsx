@@ -14,8 +14,14 @@ import {
 	useDisclosure,
 	useColorModeValue,
 	Stack,
+	Input,
+	InputGroup,
+	InputLeftElement,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { HiMagnifyingGlass } from "react-icons/hi2";
+import { useLocation, useNavigate } from "react-router-dom";
+import AdminSearchPage from "../AdminSearchPage";
 
 const Links = [
 	{ name: "Dashboard", path: "/admin" },
@@ -41,7 +47,15 @@ const NavLink = ({ children, path }) => (
 
 export default function AdminNav() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
-
+	const navigate = useNavigate();
+	const location = useLocation();
+	console.log(location);
+	const handleSearch = (e) => {
+		if (e.key === "Enter") {
+			localStorage.setItem("search_term", e.target.value);
+			navigate("/admin/search");
+		}
+	};
 	return (
 		<>
 			<Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -71,6 +85,20 @@ export default function AdminNav() {
 							))}
 						</HStack>
 					</HStack>
+					{location.pathname !== "/admin/search" ? (
+						<InputGroup maxW={"60%"}>
+							<InputLeftElement
+								pointerEvents="none"
+								children={<HiMagnifyingGlass />}
+							/>
+							<Input
+								type="text"
+								bg="white"
+								onKeyDown={handleSearch}
+							/>
+						</InputGroup>
+					) : null}
+
 					<Flex alignItems={"center"}>
 						<Menu>
 							<MenuButton

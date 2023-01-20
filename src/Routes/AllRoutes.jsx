@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
+import AdminLoginCard from "../Cards/AdminLoginCard";
 import { Admin } from "../Components/Admin";
 import AdminAddPage from "../Components/Admin/AdminAddPage";
 import HomePage from "../Components/HomePage/HomePage";
@@ -11,6 +11,7 @@ import Checkout from "../Components/Checkout/Checkout";
 import Shippings from "../Components/Checkout/Shippings";
 import ProductDetails from "../Components/ProductPage/ProductDetails";
 import AdminUpdatePage from "../Components/Admin/AdminUpdatePage";
+import AdminSearchPage from "../Components/Admin/AdminSearchPage";
 const AllRoutes = () => {
 	return (
 		<Routes>
@@ -22,6 +23,7 @@ const AllRoutes = () => {
 			<Route path="/admin" element={<Admin />} />
 			<Route path="/admin/add" element={<AdminAddPage />} />
 			<Route path="/admin/update" element={<AdminUpdatePage />} />
+			<Route path="/admin/search" element={<AdminSearchPage />} />
 			<Route path="/signup" element={<SignupCard />} />
 			<Route path="/checkout" element={<Checkout />} />
 			<Route path="/shipping" element={<Shippings />} />

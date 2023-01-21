@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Text, Link } from "@chakra-ui/react";
 import React from "react";
 import Logo from "./lens.png";
 
@@ -8,7 +8,9 @@ const CartNav = () => {
       <Box w="80%" margin={"auto"} paddingTop="15px" paddingBottom={"15px"}>
         <Flex justifyContent={"space-between"}>
           <Box>
-            <Image src={Logo} size="120px" h="50px" />
+            <Link href="/">
+              <Image src={Logo} size="120px" h="50px" />
+            </Link>
           </Box>
           <Flex justifyContent={"center"} alignItems="center" gap={2}>
             <Image

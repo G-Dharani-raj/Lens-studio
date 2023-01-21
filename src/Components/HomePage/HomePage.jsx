@@ -57,7 +57,7 @@ const HomePage = () => {
         </Center>
       </Box>
       <Divider width={"90%"} margin="auto" />
-      <Box marginTop={"25px"}>
+      <Box marginTop={"25px"} w="96%" m="auto">
         <ProductSlider />
       </Box>
       <Box>

@@ -102,9 +102,9 @@ const Navbar = () => {
           <Box flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
             <Flex
               display={{ base: "none", md: "flex" }}
-              // ml={10}
-              // w="100%"
-              // justifyContent="space-between"
+             
+
+              
               m="auto"
               gap="160px"
             >

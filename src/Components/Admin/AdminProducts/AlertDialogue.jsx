@@ -31,7 +31,11 @@ export default function AlertButton({ id, currentPage }) {
 	// console.log(data);
 	return (
 		<>
-			<Button colorScheme="red" onClick={onOpen}>
+			<Button
+				colorScheme="red"
+				onClick={onOpen}
+				_hover={{ backgroundColor: "#fff", color: "black" }}
+			>
 				Delete
 			</Button>
 

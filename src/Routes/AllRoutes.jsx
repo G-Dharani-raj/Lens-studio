@@ -5,7 +5,6 @@ import { Admin } from "../Components/Admin";
 import AdminAddPage from "../Components/Admin/AdminAddPage";
 import HomePage from "../Components/HomePage/HomePage";
 import Products from "../Components/ProductPage/Products";
-import ProductCard from "../Components/ProductPage/ProductCard";
 import SignupCard from "../Cards/SignupCard";
 import Cart from "../Components/Cart/Cart";
 import Checkout from "../Components/Checkout/Checkout";
@@ -15,6 +14,7 @@ import AdminUpdatePage from "../Components/Admin/AdminUpdatePage";
 import AdminSearchPage from "../Components/Admin/AdminSearchPage";
 import Payment from "../Components/Checkout/Payment";
 import AdminUsersPage from "../Components/Admin/AdminUsersPage";
+import AdminDashboard from "../Components/Admin/AdminDashboard";
 const AllRoutes = () => {
 	return (
 		<Routes>
@@ -23,7 +23,8 @@ const AllRoutes = () => {
 			<Route path="/products/:id" element={<ProductDetails />} />
 			<Route path="/cart" element={<Cart />} />
 			<Route path="/payment" element={<Payment />} />
-			<Route path="/admin" element={<Admin />} />
+			<Route path="/admin" element={<AdminDashboard />} />
+			<Route path="/admin/products" element={<Admin />} />
 			<Route path="/admin/add" element={<AdminAddPage />} />
 			<Route path="/admin/update" element={<AdminUpdatePage />} />
 			<Route path="/admin/search" element={<AdminSearchPage />} />
@@ -38,4 +39,3 @@ const AllRoutes = () => {
 };
 
 export default AllRoutes;
-// something

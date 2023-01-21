@@ -6,21 +6,25 @@ export const frame_Type = [
     image:
       "https://static.lenskart.com/images/cust_mailer/Eyeglass/FullRim.png",
     id: 1,
+    query:"full_rim"
   },
   {
     name: "Half Rim",
     image:
       "https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png",
     id: 2,
+    query:"half_rim"
   },
   {
     name: "Rimless",
     image:
       "https://static.lenskart.com/images/cust_mailer/Eyeglass/Rimless.png",
     id: 3,
+    query:"rimless"
   },
 ];
 
+ 
 export const frame_Shape = [
   {
     name: "Rectangle",

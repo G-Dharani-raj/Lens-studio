@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { getQuantites } from "./ProductsQuantiy";
+import React, { useState } from "react";
 import Chart from "react-apexcharts";
 import { Box, Flex, Heading } from "@chakra-ui/react";
 
@@ -47,13 +46,6 @@ const ProductsChart = () => {
 		},
 	});
 
-	// useEffect(() => {
-	// 	setState((prev) => {
-	// 		prev.chartOptions.labels = [...name];
-	// 		prev.series = [...quantity];
-	// 		return { ...prev };
-	// 	});
-	// }, []);
 	return (
 		<Flex
 			alignItems={"center"}

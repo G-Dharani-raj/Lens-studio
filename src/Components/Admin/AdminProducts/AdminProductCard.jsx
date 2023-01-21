@@ -1,7 +1,6 @@
 import React from "react";
 import {
 	Card,
-	CardHeader,
 	CardBody,
 	CardFooter,
 	Button,
@@ -15,9 +14,8 @@ import {
 	ButtonGroup,
 	Box,
 } from "@chakra-ui/react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AlertButton from "./AlertDialogue";
-import styles from "./ProductCard.module.css";
 
 const AdminProductCard = ({
 	product_image,

@@ -45,7 +45,7 @@ const AdminPagination = ({ currentPage, setPage }) => {
 	// console.log(currentPage);
 
 	return (
-		<Box>
+		<Box py={5}>
 			<Flex gap={5}>
 				<ButtonGroup isDisabled={currentPage === 1}>
 					<IconButton
@@ -59,11 +59,11 @@ const AdminPagination = ({ currentPage, setPage }) => {
 						onClick={() => handleChange(-1)}
 					/>
 				</ButtonGroup>
-				<Flex gap={5}>
+				<Flex gap={5} alignItems={"center"}>
 					<Text>
 						{currentPage} of {pages}
 					</Text>
-					<Flex gap={1}>
+					<Flex gap={1} alignItems={"center"}>
 						<Text>Go To Page:</Text>
 						<NumberInput
 							defaultValue={1}

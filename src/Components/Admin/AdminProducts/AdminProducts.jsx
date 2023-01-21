@@ -16,7 +16,11 @@ const AdminProducts = ({ currentPage }) => {
 	if (loading) return <AdminSkeleton />;
 	return (
 		<>
-			<SimpleGrid columns={{ base: 1, lg: 4, md: 2, sm: 1 }} gap={5}>
+			<SimpleGrid
+				columns={{ base: 1, lg: 4, md: 2, sm: 1 }}
+				gap={5}
+				py={5}
+			>
 				{data.map((e) => {
 					return (
 						<AdminProductCard

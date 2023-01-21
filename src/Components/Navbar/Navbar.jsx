@@ -49,7 +49,7 @@ const Navbar = () => {
 
   const { isOpen, onToggle } = useDisclosure();
   return (
-    <Box bg='white' zIndex={'99'}   position='sticky' top='0' maxWidth='100%'>
+    <Box bg='white' zIndex={'99'}   position='sticky' top='1px' maxWidth='100%'>
       <div className="Navbar">
         <ul>
           <p>Do More, Be More</p>

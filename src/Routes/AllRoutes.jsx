@@ -15,6 +15,7 @@ import AdminUpdatePage from "../Components/Admin/AdminUpdatePage";
 import AdminSearchPage from "../Components/Admin/AdminSearchPage";
 import Payment from "../Components/Checkout/Payment";
 import AdminUsersPage from "../Components/Admin/AdminUsersPage";
+
 const AllRoutes = () => {
 	return (
 		<Routes>

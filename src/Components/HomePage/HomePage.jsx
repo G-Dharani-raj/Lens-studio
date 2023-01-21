@@ -26,13 +26,20 @@ import PowerGlasess from "./Glasess/PowerGlass";
 import SunGlasses from "./Glasess/SunGlasses";
 import HomeGlassCard from "./HomeGlassCard";
 import Videos from "./videoes";
+import { useNavigate } from "react-router-dom";
 const HomePage = () => {
+  const redirect = useNavigate();
   return (
     <Box width={"100%"} margin="0px" padding={"0px"}>
       <Navbar />
       <SimpleGrid columns={[3, 3, 3, 6]} gap={"20px"} margin="15px">
         {flined.map((el) => (
-          <HomeGlassCard {...el} />
+          <div
+            onClick={() => redirect("/products")}
+            style={{ maxHeight: "fit-content", maxWidth: "fit-content" }}
+          >
+            <HomeGlassCard {...el} />
+          </div>
         ))}
       </SimpleGrid>
       <FirCaraousal />

@@ -48,7 +48,20 @@
 }
 
 @media (max-width: 530px) {
-  .total_products_count_div {
+  .sort_price_review_div {
     display: none;
+  }
+  .product_category_div {
+    font-size: 11px;
+    margin-left: 65px;
+  }
+  .icon_cat {
+    color: rgb(172, 172, 172);
+  }
+  .cat_title {
+    margin-top: 3px;
+  }
+  .product_count {
+    font-size: 11px;
   }
 }

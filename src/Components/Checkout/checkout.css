@@ -18,3 +18,21 @@
     color: #363636;
     cursor: pointer;
 }
+
+#conti:hover {
+    color:#363636
+}
+
+#twoSection{
+    display: flex;
+    height: 500px;
+}
+
+.onesec{
+    flex:4;
+    border: 1px solid black;
+}
+.twosec{
+    flex:6;
+    border: 1px solid black;
+}

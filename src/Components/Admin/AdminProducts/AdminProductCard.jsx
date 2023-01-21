@@ -14,6 +14,8 @@ import {
 	Divider,
 	ButtonGroup,
 } from "@chakra-ui/react";
+import { Navigate, useNavigate } from "react-router-dom";
+import AlertButton from "./AlertDialogue";
 const AdminProductCard = ({
 	product_image,
 	rating_value,
@@ -25,7 +27,27 @@ const AdminProductCard = ({
 	strike_through,
 	product_offer,
 	category,
+	id,
+	currentPage,
 }) => {
+	const navigate = useNavigate();
+	const handleClick = () => {
+		let obj = {
+			product_image,
+			rating_value,
+			rating_count,
+			product_name,
+			size,
+			tags,
+			product_price,
+			strike_through,
+			product_offer,
+			category,
+			id,
+		};
+		localStorage.setItem("product", JSON.stringify(obj));
+		navigate("/admin/update");
+	};
 	return (
 		<>
 			<Card
@@ -66,12 +88,16 @@ const AdminProductCard = ({
 				<Divider />
 				<CardFooter>
 					<ButtonGroup spacing="2">
-						<Button variant="solid" colorScheme="blue">
+						<Button
+							variant="solid"
+							colorScheme="blue"
+							onClick={handleClick}
+						>
 							Update Details
 						</Button>
-						<Button variant="ghost" colorScheme="blue">
+						<AlertButton id={id} currentPage={currentPage}>
 							Remove
-						</Button>
+						</AlertButton>
 					</ButtonGroup>
 				</CardFooter>
 			</Card>

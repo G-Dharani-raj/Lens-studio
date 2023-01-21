@@ -60,7 +60,7 @@ export const adminReducer = (state = adminInitialState, { type, payload }) => {
 					loading: false,
 					error: false,
 				},
-				data: payload,
+				data: [...payload],
 			};
 		}
 		case ADMIN_UPDATE_LOADING: {
@@ -88,7 +88,6 @@ export const adminReducer = (state = adminInitialState, { type, payload }) => {
 					loading: false,
 					error: false,
 				},
-				data: payload,
 			};
 		}
 		case ADMIN_ADD_LOADING: {
@@ -116,7 +115,6 @@ export const adminReducer = (state = adminInitialState, { type, payload }) => {
 					loading: false,
 					error: false,
 				},
-				data: payload,
 			};
 		}
 		case ADMIN_DELETE_LOADING: {
@@ -144,7 +142,6 @@ export const adminReducer = (state = adminInitialState, { type, payload }) => {
 					loading: false,
 					error: false,
 				},
-				data: payload,
 			};
 		}
 

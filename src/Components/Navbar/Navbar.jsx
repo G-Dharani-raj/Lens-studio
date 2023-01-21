@@ -100,16 +100,11 @@ const Navbar = () => {
             />
           </Flex>
           <Box flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-            <Flex
-              display={{ base: "none", md: "flex" }}
-             
-
-
-              m="auto"
-              gap="160px"
-            >
-              <Flex w="20%" gap={"20%"} justifyContent="flex-start">
-                <Image src={Logo} w="130px" m="auto" />
+            <Flex display={{ base: "none", md: "flex" }} m="auto" gap="160px">
+              <Flex w="20%" gap={"20%"} justifyContent="center">
+                <Link href="/">
+                  <Image src={Logo} size="100px" h="30px" />
+                </Link>
 
                 <Image
                   src="https://static.lenskart.com/media/mobile/images/phone_number.svg"
@@ -135,7 +130,9 @@ const Navbar = () => {
                     <FaRegHeart />
                   </Flex>
                   <Flex gap={"5px"}>
-                    <FaShoppingCart />
+                    <Link href="/cart">
+                      <FaShoppingCart />
+                    </Link>
                   </Flex>
                   <Menu>
                     <MenuButton

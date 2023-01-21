@@ -10,6 +10,8 @@ import SignupCard from "../Cards/SignupCard";
 import Checkout from "../Components/Checkout/Checkout";
 import Shippings from "../Components/Checkout/Shippings";
 import ProductDetails from "../Components/ProductPage/ProductDetails";
+import LoaderSpinner from "../Components/Loader/LoaderSpinner";
+ 
 const AllRoutes = () => {
   return (
     <Routes>

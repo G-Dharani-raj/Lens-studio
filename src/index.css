@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 ::-webkit-scrollbar {
@@ -22,3 +23,5 @@ body {
 ::-webkit-scrollbar-track-piece {
   background: transparent;
 }
+
+ 

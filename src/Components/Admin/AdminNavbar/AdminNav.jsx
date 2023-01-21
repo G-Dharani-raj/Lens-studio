@@ -14,9 +14,17 @@ import {
 	useDisclosure,
 	useColorModeValue,
 	Stack,
+	Input,
+	InputGroup,
+	InputLeftElement,
+	Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-
+import { HiMagnifyingGlass } from "react-icons/hi2";
+import { useLocation, useNavigate } from "react-router-dom";
+import AdminSearchPage from "../AdminSearchPage";
+import Logo from "./lens.png";
+import { Link as Routerlink } from "react-router-dom";
 const Links = [
 	{ name: "Dashboard", path: "/admin" },
 	{ name: "Products", path: "/admin" },
@@ -41,7 +49,15 @@ const NavLink = ({ children, path }) => (
 
 export default function AdminNav() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
-
+	const navigate = useNavigate();
+	const location = useLocation();
+	// console.log(location);
+	const handleSearch = (e) => {
+		if (e.key === "Enter") {
+			localStorage.setItem("search_term", e.target.value);
+			navigate("/admin/search");
+		}
+	};
 	return (
 		<>
 			<Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -58,7 +74,9 @@ export default function AdminNav() {
 						onClick={isOpen ? onClose : onOpen}
 					/>
 					<HStack spacing={8} alignItems={"center"}>
-						<Box>Logo</Box>
+						<Box>
+							<Image src={Logo} w="130px" m="auto" />
+						</Box>
 						<HStack
 							as={"nav"}
 							spacing={4}
@@ -71,6 +89,23 @@ export default function AdminNav() {
 							))}
 						</HStack>
 					</HStack>
+					{location.pathname !== "/admin/search" ? (
+						<InputGroup
+							maxW={"60%"}
+							display={{ base: "none", md: "flex" }}
+						>
+							<InputLeftElement
+								pointerEvents="none"
+								children={<HiMagnifyingGlass />}
+							/>
+							<Input
+								type="text"
+								bg="white"
+								onKeyDown={handleSearch}
+							/>
+						</InputGroup>
+					) : null}
+
 					<Flex alignItems={"center"}>
 						<Menu>
 							<MenuButton
@@ -88,10 +123,11 @@ export default function AdminNav() {
 								/>
 							</MenuButton>
 							<MenuList>
-								<MenuItem>Link 1</MenuItem>
-								<MenuItem>Link 2</MenuItem>
-								<MenuDivider />
-								<MenuItem>Link 3</MenuItem>
+								<MenuItem>
+									<Routerlink to="/adminlogin">
+										Logout
+									</Routerlink>
+								</MenuItem>
 							</MenuList>
 						</Menu>
 					</Flex>
@@ -100,10 +136,25 @@ export default function AdminNav() {
 				{isOpen ? (
 					<Box pb={4} display={{ md: "none" }}>
 						<Stack as={"nav"} spacing={4}>
-							{Links.map((link) => (
-								<NavLink key={link}>{link}</NavLink>
+							{Links.map((e) => (
+								<NavLink key={`${e.name}mobile`} path={e.path}>
+									{e.name}
+								</NavLink>
 							))}
 						</Stack>
+						{location.pathname !== "/admin/search" ? (
+							<InputGroup maxW={"60%"}>
+								<InputLeftElement
+									pointerEvents="none"
+									children={<HiMagnifyingGlass />}
+								/>
+								<Input
+									type="text"
+									bg="white"
+									onKeyDown={handleSearch}
+								/>
+							</InputGroup>
+						) : null}
 					</Box>
 				) : null}
 			</Box>

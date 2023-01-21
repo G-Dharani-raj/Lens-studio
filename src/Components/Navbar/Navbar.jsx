@@ -104,7 +104,7 @@ const Navbar = () => {
               display={{ base: "none", md: "flex" }}
              
 
-              
+
               m="auto"
               gap="160px"
             >

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./styles/ProductFilter.css";
 import { frame_Type, frame_Shape ,color_options} from "./other";
+import { productContext } from "../../Context/PrductContext";
 
 import {
   Accordion,
@@ -13,6 +14,9 @@ import {
 import {TriangleDownIcon} from "@chakra-ui/icons"
 
 export default function ProductFilter() {
+  const { getCategoryProducts , selectedCategory } = useContext(productContext)
+  
+  let cat = "Rimless"
   return (
     <div className="pro_filter_mother_container">
       <div className="frame_type_container">
@@ -20,7 +24,7 @@ export default function ProductFilter() {
         <div className="frame_type_cards">
           {frame_Type.map((ele) => {
             return (
-              <div key={ele.id} className="frame_type_single_card">
+              <div style={{border:  selectedCategory ===ele.name ? "1px solid blue":null}} key={ele.id} className="frame_type_single_card" onClick={()=>getCategoryProducts(ele.name,ele.query)}>
                 <img src={ele.image} alt="" />
                 <p className="frame_type_name">{ele.name}</p>
               </div>
@@ -35,7 +39,7 @@ export default function ProductFilter() {
         <div className="frame_type_cards">
           {frame_Shape.map((ele,ind) => {
             return (
-              <div key={ind} className="frame_type_single_card">
+              <div  style={{border:  selectedCategory===ele.name ? "1px solid blue":null}} key={ind} className="frame_type_single_card" onClick={()=>getCategoryProducts(ele.name)} >
                 <img src={ele.image} alt="" />
                 <p className="frame_type_name">{ele.name}</p>
               </div>
@@ -75,7 +79,7 @@ export default function ProductFilter() {
             return(
               <div key={index} className='color_options ' >
                  <input type="checkbox" value={ele} />
-                 <label for="color_option"> {ele} <span className="color_option_conunt">
+                 <label htmlFor="color_option"> {ele} <span className="color_option_conunt">
                   (55+)</span> </label>
               </div>
             )

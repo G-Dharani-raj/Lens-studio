@@ -123,7 +123,7 @@ const Fotter = () => {
             </PopoverContent>
           </Popover>
         </Flex>
-        <Flex justifyContent={"space-between"} marginTop="20px">
+        <Flex justifyContent={"space-between"} marginTop="20px" > 
           <Box marginTop={"30px"}>
             <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={10}>
               <Stack align={"flex-start"}>
@@ -147,7 +147,7 @@ const Fotter = () => {
             </SimpleGrid>
           </Box>
           <Box margin={"auto 10px"}>
-            <Flex marginLeft={"50px"}>
+            <Flex marginLeft={{ base: "-10px", sm: "5px", md: "50px" }}>
               <Image src="https://static.lenskart.com/media/desktop/img/play-store.svg" />
               <Image src="https://static.lenskart.com/media/desktop/img/app-store.svg" />
             </Flex>

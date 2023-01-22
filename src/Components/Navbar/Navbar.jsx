@@ -31,20 +31,27 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import ModalCom from "../../Modal/SignUpModal";
 import LoginModal from "../../Modal/LoginModal";
 import { logout } from "../../Cards/LoginCard";
 import UseAuth from "../../CustomHook/UseAuth";
+import { useSelector } from "react-redux";
+
 import Logo from "./lens.png";
 import { FaRegHeart, FaShoppingCart, FaUserCircle } from "react-icons/fa";
 const Navbar = () => {
   // for authentication
-  const { colorMode, toggleColorMode } = useColorMode();
   const { currentUser, userDetails } = UseAuth();
   console.log("currentUser: ", currentUser);
   // for authentication
-
+  const { data } = useSelector((store) => store.cartManager);
+  let cartItem;
+  if (data.length == 0) {
+    cartItem = null;
+  } else {
+    cartItem = data.length;
+  }
   const { isOpen, onToggle } = useDisclosure();
   return (
     <Box bg="white" zIndex={"99"} position="sticky" top="1px" maxWidth="100%">
@@ -98,7 +105,11 @@ const Navbar = () => {
             />
           </Flex>
           <Box flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-            <Flex display={{ base: "none", md: "flex" }} m="auto" gap="160px">
+            <Flex
+              display={{ base: "none", md: "flex" }}
+              m="auto"
+              gap={{ md: "40px", lg: "85px" }}
+            >
               <Flex w="20%" gap={"20%"} justifyContent="center">
                 <Link to="/">
                   <Image src={Logo} size="100px" h="30px" />
@@ -127,11 +138,12 @@ const Navbar = () => {
                   <Flex gap={"5px"}>
                     <FaRegHeart />
                   </Flex>
-                  <Flex gap={"5px"}>
-                    <Link to="/cart">
+                  <Link to="/cart">
+                    <Flex gap={"5px"} alignContent="center" mt="6px">
                       <FaShoppingCart />
-                    </Link>
-                  </Flex>
+                      <Text mt="-3px">{cartItem}</Text>
+                    </Flex>
+                  </Link>
                   <Menu>
                     <MenuButton
                       as={Button}
@@ -231,7 +243,7 @@ const DesktopNav = () => {
               <Link
                 p={2}
                 to={navItem.rute ?? "#"}
-                fontSize={"sm"}
+                fontSize={{ md: "10px", sm: "10px", lg: "20px" }}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{

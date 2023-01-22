@@ -16,6 +16,7 @@ import Payment from "../Components/Checkout/Payment";
 import AdminUsersPage from "../Components/Admin/AdminUsersPage";
 import PrivateRoute from "../PrivateRoute";
 import AdminPrivateRoute from "../AdminPrivateRoute";
+import AdminDashboard from "../Components/Admin/AdminDashboard";
 const AllRoutes = () => {
   return (
     <Routes>
@@ -33,6 +34,14 @@ const AllRoutes = () => {
       />
       <Route
         path="/admin"
+        element={
+          <AdminPrivateRoute>
+            <AdminDashboard />
+          </AdminPrivateRoute>
+        }
+      />
+      <Route
+        path="/admin/products"
         element={
           <AdminPrivateRoute>
             <Admin />

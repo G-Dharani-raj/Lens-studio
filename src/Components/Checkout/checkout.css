@@ -25,14 +25,20 @@
 
 #twoSection{
     display: flex;
-    height: 500px;
+    height: auto;
 }
 
 .onesec{
-    flex:4;
-    border: 1px solid black;
+    flex:3;
+    /* border: 1px solid black; */
+    color: #333333;
 }
 .twosec{
-    flex:6;
-    border: 1px solid black;
+    flex:7;
+    /* border: 1px solid black; */
+}
+
+#inner_net:hover {
+    border: 1px solid rgb(64, 166, 250);
+    cursor: pointer;
 }

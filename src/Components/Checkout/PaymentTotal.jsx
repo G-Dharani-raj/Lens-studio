@@ -4,7 +4,7 @@ import axios from "axios";
 
 import React, { useEffect, useState } from "react";
 
-const PaymentTotal = () => {
+const PaymentTotal = ({delAll}) => {
   const [data, setData] = useState([]);
 
   const handleData = async () => {
@@ -35,6 +35,14 @@ const PaymentTotal = () => {
     setData(newData);
   };
 
+  
+  const emptyCart = (id)=>{
+        
+    axios.delete(`https://lazy-red-armadillo-garb.cyclic.app/cart/${id}`).then((res)=>setData([])).catch((err)=>console.log(err));
+  }
+  if(delAll){
+    data.forEach((el)=>emptyCart(el.id))
+  }
   const postUpdate = async (id, newValue) => {
     let tmp;
     newValue.map((e) => (id === e.id ? e.quantity : e));
@@ -70,7 +78,7 @@ const PaymentTotal = () => {
     //   console.log(data);
     total += Number(data[i].product_price) * Number(data[i].quantity);
   }
-  let tax  = Math.ceil(total - ((total)/100)*95);
+  let tax  = 420;
   return (
     <div>
       {data.map((datas) => (
@@ -153,7 +161,7 @@ const PaymentTotal = () => {
             TAX COLLECTED
           </Text>
           <Text fontSize="15px" color="#363636" fontWeight="bold">+
-            ₹{tax}
+            ₹{total? tax : 0}
           </Text>
         </div>
         <hr />
@@ -168,7 +176,7 @@ const PaymentTotal = () => {
             ORDER TOTAL
           </Text>
           <Text fontSize="15px" color="#009997" fontWeight="bold">
-            ₹{total+tax}
+            ₹{total? total+tax : 0}
           </Text>
         </div>
       </div>

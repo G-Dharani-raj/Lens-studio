@@ -7,8 +7,8 @@ const Videos = () => {
       padding={"30px"}
       bgColor="#fff092"
       marginTop={"25px"}
-      display={{ sm: "none", md: "flex" }}
-      flexDirection="row"
+      // display={{ sm: "none", md: "flex" }}
+      // flexDirection="row"
     >
       <Center>
         <Text fontSize="25px">MEET OUR HAPPY CUSTOMERS</Text>

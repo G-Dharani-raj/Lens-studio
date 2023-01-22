@@ -14,7 +14,8 @@ const UseAuth = () => {
         getDoc(userRef)
           .then((res) => {
             setuserDetails(res.data());
-            console.log(res.data());
+            localStorage.setItem('admin', res.data().isAdmin) 
+            console.log(res.data().isAdmin);
           })
           .catch((err) => console.log(err));
       } else {

@@ -3,6 +3,8 @@ import { signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/a
 import { doc, setDoc } from 'firebase/firestore';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { useAuth } from '../AuthContext/AuthContextProvider';
+import UseAuth from '../CustomHook/UseAuth';
 
 import { auth,db,provider } from "../FireBase/firebase";
 import "./card.css";
@@ -19,44 +21,57 @@ const signInWithGoogle =async () => {
 
         const UserCollectionRef = doc(db, "users", user.uid);
         await setDoc(UserCollectionRef, { email,name, googleAuth:true });
+        localStorage.setItem("isAuth", true);
    }
    catch(e){
     console.log(e)
    }
   };
-  export const logout = async () => {
-    try {
-      await signOut(auth);
-      alert("successfully logout");
-    } catch (error) {
-      console.log("error: ", error);
-    }
-  };
+  // export const logout = async () => {
+  //   try {
+  //     await signOut(auth);
+  //     localStorage.removeItem('isAuth')
+  //                   alert("Successfully logout")
+  //   } catch (error) {
+  //     console.log("error: ", error);
+  //   }
+  // };
 const Login = () => {
+  const { login } = useAuth()
     const [emailSignIn, setEmailSignIn] = useState("");
     const [passwordSignIn, setPasswordSignIn] = useState("");
-    
+    const { userDetails } = UseAuth();
+    const HandleSubmit = (e) => {
+      e.preventDefault()
+     
 
-    const SignIn = async () => {
-        try {
-          const email = emailSignIn;
-          const password = passwordSignIn;
+      // * requesting to server for the login
+      login({ emailSignIn, passwordSignIn })
+      setEmailSignIn("")
+      setPasswordSignIn("")
+ }
+
+
+    // const SignIn = async () => {
+    //     try {
+    //       const email = emailSignIn;
+    //       const password = passwordSignIn;
           
-          const userCredential = await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-          );
-          const user = userCredential.user;
-          console.log("user: ", user);
+    //       const userCredential = await signInWithEmailAndPassword(
+    //         auth,
+    //         email,
+    //         password
+    //       );
+    //       const user = userCredential.user;
+    //       console.log("user: ", user);
     
-          setPasswordSignIn("");
-          setEmailSignIn("");
-          alert("successfully Login");
-        } catch (error) {
-          console.log("error: ", error);
-        }
-      };
+    //       setPasswordSignIn("");
+    //       setEmailSignIn("");
+    //       alert("successfully Login");
+    //     } catch (error) {
+    //       console.log("error: ", error);
+    //     }
+    //   };
 
   return (
     <Stack spacing={4} mx={"auto"} maxW={"lg"} py={2} px={2}>
@@ -92,15 +107,16 @@ const Login = () => {
           onChange={(e) => setPasswordSignIn(e.target.value)}
         /> */}
         <br />
-        <button class="btn" onClick={SignIn}>Sign In</button>
+        <button class="btn" onClick={HandleSubmit}>Sign In</button>
        
         <button class="btn"  onClick={signInWithGoogle}>
           Sign In Google
         </button>
-        <Text>
-        Are you a Admin ?
-          <Link to="/adminlogin">Login</Link>
-          </Text>
+        {userDetails?.isAdmin?<Text>
+        
+          <Link to="/adminlogin">Admin Panel</Link>
+          </Text>:""}
+        
           
     </Stack>
   )

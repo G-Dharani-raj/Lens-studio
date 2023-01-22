@@ -69,9 +69,10 @@ const PageVisits = () => {
 				alignItems={"center"}
 				justifyContent={"space-between"}
 				width="100%"
+				direction={{ base: "column", lg: "row" }}
 			>
 				<Heading size="lg">Page Traffic in the past 5 days</Heading>
-				<Box width={"50%"}>
+				<Box width={{ base: "100%", lg: "50%" }}>
 					{/* {days.length > 0 && views.length > 0 ? ( */}
 					<Chart
 						options={state.options}

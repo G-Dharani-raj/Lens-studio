@@ -35,7 +35,7 @@ const ProductsChart = () => {
 					breakpoint: 480,
 					options: {
 						chart: {
-							width: 200,
+							width: "100%",
 						},
 						legend: {
 							position: "bottom",
@@ -50,9 +50,10 @@ const ProductsChart = () => {
 		<Flex
 			alignItems={"center"}
 			justifyContent={"space-between"}
-			width="70%"
+			width="100%"
+			direction={{ base: "column-reverse", lg: "row" }}
 		>
-			<Box width="50%">
+			<Box width={{ base: "100%", lg: "50%" }}>
 				<Chart
 					options={state.options}
 					series={state.series}

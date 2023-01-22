@@ -51,7 +51,7 @@ export default function AdminNav() {
 	const location = useLocation();
 	// console.log(location);
 	const handleSearch = (e) => {
-		if (e.key === "Enter") {
+		if (e.key === "Enter" || e.keyCode === 13) {
 			localStorage.setItem("search_term", e.target.value);
 			navigate("/admin/search");
 		}

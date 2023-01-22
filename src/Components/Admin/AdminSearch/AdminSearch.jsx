@@ -76,7 +76,7 @@ const AdminSearch = () => {
 				</Center>
 				{suggestions.length > 0 ? (
 					<SimpleGrid
-						columns={{ base: 3, lg: 4, md: 2, sm: 1 }}
+						columns={{ base: 1, lg: 4, md: 2, sm: 1 }}
 						gap={5}
 					>
 						{suggestions.map((e) => (

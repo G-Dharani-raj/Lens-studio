@@ -15,6 +15,7 @@ import AdminSearchPage from "../Components/Admin/AdminSearchPage";
 import Payment from "../Components/Checkout/Payment";
 import AdminUsersPage from "../Components/Admin/AdminUsersPage";
 import PrivateRoute from "../PrivateRoute";
+import AdminPrivateRoute from "../AdminPrivateRoute";
 const AllRoutes = () => {
   return (
     <Routes>
@@ -33,49 +34,49 @@ const AllRoutes = () => {
       <Route
         path="/admin"
         element={
-          <PrivateRoute>
+          <AdminPrivateRoute>
             <Admin />
-          </PrivateRoute>
+          </AdminPrivateRoute>
         }
       />
       <Route
         path="/admin/add"
         element={
-          <PrivateRoute>
+          <AdminPrivateRoute>
             <AdminAddPage />
-          </PrivateRoute>
+          </AdminPrivateRoute>
         }
       />
       <Route
         path="/admin/update"
         element={
-          <PrivateRoute>
+          <AdminPrivateRoute>
             <AdminUpdatePage />
-          </PrivateRoute>
+          </AdminPrivateRoute>
         }
       />
       <Route
         path="/admin/search"
         element={
-          <PrivateRoute>
+          <AdminPrivateRoute>
             <AdminSearchPage />
-          </PrivateRoute>
+          </AdminPrivateRoute>
         }
       />
       <Route
         path="/admin/users"
         element={
-          <PrivateRoute>
+          <AdminPrivateRoute>
             <AdminUsersPage />
-          </PrivateRoute>
+          </AdminPrivateRoute>
         }
       />
       <Route
         path="/adminlogin"
         element={
-          <PrivateRoute>
+          <AdminPrivateRoute>
             <AdminLoginCard />
-          </PrivateRoute>
+          </AdminPrivateRoute>
         }
       />
       <Route path="/signup" element={<SignupCard />} />

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCartData, removeCartData } from "./CartRedux/CartAction";
 import { updateCartData } from "./CartRedux/CartAction";
 import { FaAngleRight } from "react-icons/fa";
+import CartNull from "./cartnull";
 const Cart = () => {
   const { data, loading } = useSelector((store) => store.cartManager);
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ const Cart = () => {
   let finalPrice = total + tax;
   if (loading) {
     return <h1>Loding.........</h1>;
+  }
+  if (data.length === 0) {
+    return <CartNull />
   }
   return (
     <Box>

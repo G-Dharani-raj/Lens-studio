@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, {   useContext } from "react";
 import "./styles/products.css";
 import { Image } from "@chakra-ui/react";
 import ProductCard from "./ProductCard";
@@ -9,6 +9,7 @@ import ProductInfoListing from "./ProductInfoListing";
 import PhoneTabFilterBar from "./PhoneTabFilterBar";
 import { productContext } from "../../Context/PrductContext";
 import LoaderSpinner from "../Loader/LoaderSpinner";
+import Fotter from "../Fotter/Fotter";
 
 export default function Products() {
   let { isLoading, data, isError } = useContext(productContext);
@@ -27,7 +28,7 @@ export default function Products() {
       <div className="product_page_mother_container">
         {/* very first banner  container */}
         <div className="product_page_banner">
-          <Image src="https://static1.lenskart.com/media/desktop/img/Jan23/PLP_WEB.gif" />
+          <Image src="https://static1.lenskart.com/media/desktop/img/Dec22/15-Dec/bogo11.gif" />
         </div>
         <div className="products_and_filter_container">
           <div className="productFilter_container">
@@ -40,7 +41,7 @@ export default function Products() {
             </div>
             {/* next div is for whole products cards */}
             {isLoading ? (
-              <LoaderSpinner />
+              <LoaderSpinner top={'12%'} left={"39%"} sz={"xl"} />
             ) : (
               <div className="product_cards_container">
                 {data.map((ele) => {
@@ -60,7 +61,7 @@ export default function Products() {
           </div>
         </div>
       </div>
-
+{/* <Fotter/> */}
       <PhoneTabFilterBar />
     </>
   );

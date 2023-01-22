@@ -70,7 +70,7 @@ const ShippingTotal = () => {
     //   console.log(data);
     total += Number(data[i].product_price) * Number(data[i].quantity);
   }
-  let tax  = Math.ceil(total - ((total)/100)*95);
+  let tax  = 420;
   return (
     <div>
       {data.map((datas) => (
@@ -153,7 +153,7 @@ const ShippingTotal = () => {
             TAX COLLECTED
           </Text>
           <Text fontSize="15px" color="#363636" fontWeight="bold">+
-            ₹{tax}
+            ₹{total? tax : 0}
           </Text>
         </div>
         <hr />
@@ -168,7 +168,7 @@ const ShippingTotal = () => {
             ORDER TOTAL
           </Text>
           <Text fontSize="15px" color="#009997" fontWeight="bold">
-            ₹{total+tax}
+            ₹{total? total+tax : 0}
           </Text>
         </div>
       </div>

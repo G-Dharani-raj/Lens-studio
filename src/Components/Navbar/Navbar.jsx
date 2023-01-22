@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Navbar.css";
 import {
   Box,
@@ -53,6 +53,7 @@ const Navbar = () => {
     cartItem = data.length;
   }
   const { isOpen, onToggle } = useDisclosure();
+  
   return (
     <Box bg="white" zIndex={"99"} position="sticky" top="1px" maxWidth="100%">
       <div className="Navbar">
@@ -141,7 +142,7 @@ const Navbar = () => {
                   <Link to="/cart">
                     <Flex gap={"5px"} alignContent="center" mt="6px">
                       <FaShoppingCart />
-                      <Text mt="-3px">{cartItem}</Text>
+                      {/* <Text mt="-3px">{cartItem}</Text> */}
                     </Flex>
                   </Link>
                   <Menu>

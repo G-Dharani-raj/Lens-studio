@@ -23,6 +23,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "./lens.png";
 import { Link as Routerlink } from "react-router-dom";
+import React from "react";
 const Links = [
 	{ name: "Dashboard", path: "/admin" },
 	{ name: "Products", path: "/admin/products" },
@@ -31,7 +32,7 @@ const Links = [
 ];
 
 const NavLink = ({ children, path }) => (
-	<Link
+	<Routerlink
 		px={2}
 		py={1}
 		rounded={"md"}
@@ -39,19 +40,19 @@ const NavLink = ({ children, path }) => (
 			textDecoration: "none",
 			bg: useColorModeValue("gray.200", "gray.700"),
 		}}
-		href={path}
+		to={path}
 	>
 		{children}
-	</Link>
+	</Routerlink>
 );
 
-export default function AdminNav() {
+function AdminNav() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const navigate = useNavigate();
 	const location = useLocation();
 	// console.log(location);
 	const handleSearch = (e) => {
-		if (e.key === "Enter") {
+		if (e.key === "Enter" || e.keyCode === 13) {
 			localStorage.setItem("search_term", e.target.value);
 			navigate("/admin/search");
 		}
@@ -77,7 +78,13 @@ export default function AdminNav() {
 					/>
 					<HStack spacing={8} alignItems={"center"}>
 						<Box>
-							<Image src={Logo} w="130px" m="auto" />
+							<Image
+								src={Logo}
+								w="130px"
+								m="auto"
+								_hover={{ cursor: "pointer" }}
+								onClick={() => navigate("/")}
+							/>
 						</Box>
 						<HStack
 							as={"nav"}
@@ -163,3 +170,5 @@ export default function AdminNav() {
 		</>
 	);
 }
+
+export default React.memo(AdminNav);

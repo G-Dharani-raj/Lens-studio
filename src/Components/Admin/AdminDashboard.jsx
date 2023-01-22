@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import countapi from "countapi-js";
+import React from "react";
 import AdminNav from "./AdminNavbar/AdminNav";
 import PageVisits from "./PageVisits/PageVisits";
 import ProductsChart from "./AdminDashboard/ProductsChart";

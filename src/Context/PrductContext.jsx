@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const productContext = createContext();
 
-const getData = (url, id = "") => {
+const getData = (url) => {
   return axios.get(url);
 };
 
@@ -15,6 +15,7 @@ const initialProductData = {
   cartCount: 0,
   singleProduct: {},
   singleProductLoading: true,
+  cart_data:[]
 };
 
 export default function PrductContext({ children }) {
@@ -77,6 +78,8 @@ export default function PrductContext({ children }) {
       })
       .then((res) => console.log(res.data))
       .catch((err) => console.log("errr :::", err));
+
+      setProductData({...productData,cart_data:[...productData.cart_data,data]})
   };
   // function to sort data by hight to low & low to high
 
@@ -87,8 +90,14 @@ export default function PrductContext({ children }) {
     );
   };
 
-  // function get all categories from data
+  // function to get data by size
 
+ const sortDataBySize = (size) => {
+    setProductData({ ...productData, isLoading: true });
+    getData(`${baseUrl}?size=${size}`).then((res) =>
+      setProductData({ ...productData, data: res.data, isLoading: false })
+    );
+  };
 
   return (
     <productContext.Provider
@@ -98,6 +107,7 @@ export default function PrductContext({ children }) {
         getSingleProductDetails,
         handleCartUpdate,
         sortData,
+        sortDataBySize
       }}
     >
       {children}

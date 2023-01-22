@@ -1,4 +1,6 @@
-import { Box, Flex, Image, Text, Link } from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+
 import React from "react";
 import Logo from "./lens.png";
 
@@ -8,7 +10,7 @@ const CartNav = () => {
       <Box w="80%" margin={"auto"} paddingTop="15px" paddingBottom={"15px"}>
         <Flex justifyContent={"space-between"}>
           <Box>
-            <Link href="/">
+            <Link to="/">
               <Image src={Logo} size="120px" h="50px" />
             </Link>
           </Box>

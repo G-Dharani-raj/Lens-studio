@@ -35,4 +35,4 @@ const AdminProducts = ({ currentPage }) => {
 	);
 };
 
-export default AdminProducts;
+export default React.memo(AdminProducts);

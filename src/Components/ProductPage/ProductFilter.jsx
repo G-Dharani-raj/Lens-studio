@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import "./styles/ProductFilter.css";
 import { frame_Type, frame_Shape, color_options } from "./other";
 import { productContext } from "../../Context/PrductContext";
@@ -15,21 +15,26 @@ import {
 import { TriangleDownIcon } from "@chakra-ui/icons";
 
 export default function ProductFilter() {
-  let categoryArr;
-  const { getCategoryProducts, selectedCategory, data } =
+  let categoryArr =  ['Medium', 'Wide', 'Narrow', 'Extra Narrow', 'Extra Wide']
+  const { getCategoryProducts, selectedCategory, data, sortDataBySize } =
     useContext(productContext);
-  const getCategoriesFromData = () => {
-     let categoryObj={}
-    for (let i = 0; i <= data.length - 1; i++) {
-      if (categoryObj[data[i].size] === undefined) {
-        let temp = data[i].size.slice(6);
-        categoryObj[temp] = 1;
-      }
-    }
-    categoryArr=Object.keys(categoryObj)
-    console.log("all category", categoryArr);
-  };
-  getCategoriesFromData();
+  // console.log("useref",categoryArr)
+  // const getCategoriesFromData = () => {
+  //   let categoryObj = {};
+  //   for (let i = 0; i <= data.length - 1; i++) {
+  //     if (categoryObj[data[i].size] === undefined) {
+  //       let temp = data[i].size;
+  //       categoryObj[temp] = 1;
+  //     }
+  //   }
+  //   categoryArr.current = Object.keys(categoryObj);
+  //   console.log("all category", categoryArr);
+  // };
+  
+  
+  //   getCategoriesFromData();
+
+    
 
   return (
     <div className="pro_filter_mother_container">
@@ -88,7 +93,7 @@ export default function ProductFilter() {
                   flex="1"
                   textAlign="left"
                 >
-                   Frame Size
+                  Frame Size
                 </Box>
                 <TriangleDownIcon color={"grey"} boxSize="3" />
               </AccordionButton>
@@ -96,12 +101,13 @@ export default function ProductFilter() {
             <AccordionPanel pb={4}>
               {categoryArr.map((ele, index) => {
                 return (
-                  <div key={index} className="color_options ">
-                    <input type="checkbox" value={index} />
-                    <label htmlFor="FrameSize">
-                      {" "}
-                      {ele}
-                    </label>
+                  <div
+                   
+                    key={index}
+                    className="color_options "
+                  >
+                    <input  onClick={() => sortDataBySize(ele)} type="checkbox" value={index} />
+                    <label htmlFor="FrameSize"> {ele}</label>
                   </div>
                 );
               })}
@@ -114,7 +120,11 @@ export default function ProductFilter() {
         <div className="color_filters_options_div">
           {color_options.map((ele, index) => {
             return (
-              <div key={index} className="color_options ">
+              <div
+                style={{ marginLeft: "14px" }}
+                key={index}
+                className="color_options "
+              >
                 <input type="checkbox" value={ele} />
                 <label htmlFor="color_option">
                   {" "}

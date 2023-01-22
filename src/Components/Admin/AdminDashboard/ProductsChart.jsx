@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { getQuantites } from "./ProductsQuantiy";
+import React, { useState } from "react";
 import Chart from "react-apexcharts";
 import { Box, Flex, Heading } from "@chakra-ui/react";
 
@@ -36,7 +35,7 @@ const ProductsChart = () => {
 					breakpoint: 480,
 					options: {
 						chart: {
-							width: 200,
+							width: "100%",
 						},
 						legend: {
 							position: "bottom",
@@ -47,20 +46,14 @@ const ProductsChart = () => {
 		},
 	});
 
-	// useEffect(() => {
-	// 	setState((prev) => {
-	// 		prev.chartOptions.labels = [...name];
-	// 		prev.series = [...quantity];
-	// 		return { ...prev };
-	// 	});
-	// }, []);
 	return (
 		<Flex
 			alignItems={"center"}
 			justifyContent={"space-between"}
-			width="70%"
+			width="100%"
+			direction={{ base: "column-reverse", lg: "row" }}
 		>
-			<Box width="50%">
+			<Box width={{ base: "100%", lg: "50%" }}>
 				<Chart
 					options={state.options}
 					series={state.series}
@@ -73,4 +66,4 @@ const ProductsChart = () => {
 	);
 };
 
-export default ProductsChart;
+export default React.memo(ProductsChart);

@@ -52,7 +52,7 @@ const PageVisits = () => {
 	});
 	useEffect(() => {
 		countapi
-			.hit("lenstudio.com", "0aa8524b-a4f6-41a7-8043-ea923f7d2a68")
+			.get("lenstudio.com", "0aa8524b-a4f6-41a7-8043-ea923f7d2a68")
 			.then((result) => setVisits(result.value));
 		localStorage.setItem("visits", visits);
 		// setViews();
@@ -69,9 +69,10 @@ const PageVisits = () => {
 				alignItems={"center"}
 				justifyContent={"space-between"}
 				width="100%"
+				direction={{ base: "column", lg: "row" }}
 			>
 				<Heading size="lg">Page Traffic in the past 5 days</Heading>
-				<Box width={"50%"}>
+				<Box width={{ base: "100%", lg: "50%" }}>
 					{/* {days.length > 0 && views.length > 0 ? ( */}
 					<Chart
 						options={state.options}
@@ -86,7 +87,7 @@ const PageVisits = () => {
 	);
 };
 
-export default PageVisits;
+export default React.memo(PageVisits);
 
 // {
 //     "status": 200,

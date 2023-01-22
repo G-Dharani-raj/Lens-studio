@@ -78,7 +78,13 @@ function AdminNav() {
 					/>
 					<HStack spacing={8} alignItems={"center"}>
 						<Box>
-							<Image src={Logo} w="130px" m="auto" />
+							<Image
+								src={Logo}
+								w="130px"
+								m="auto"
+								_hover={{ cursor: "pointer" }}
+								onClick={() => navigate("/")}
+							/>
 						</Box>
 						<HStack
 							as={"nav"}

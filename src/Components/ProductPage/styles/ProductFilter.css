@@ -80,3 +80,15 @@ margin-top: 10px;
   color: rgb(61, 61, 61);
   margin-left: -10px;
 }
+
+@media (max-width: 900px) {
+  .frame_type_cards {
+    display: grid;
+    grid-template-columns: repeat(2, 40%);
+    gap: 10px;
+    margin-left: 2%;
+    margin-top: 10px;
+  }
+}
+
+ 

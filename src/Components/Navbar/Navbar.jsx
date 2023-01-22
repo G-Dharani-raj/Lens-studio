@@ -36,12 +36,14 @@ import {
 } from "@chakra-ui/icons";
 import ModalCom from "../../Modal/SignUpModal";
 import LoginModal from "../../Modal/LoginModal";
-import { logout } from "../../Cards/LoginCard";
+// import { logout } from "../../Cards/LoginCard";
 import UseAuth from "../../CustomHook/UseAuth";
 import Logo from "./lens.png";
 import { FaRegHeart, FaShoppingCart, FaUserCircle } from "react-icons/fa";
+import { useAuth } from "../../AuthContext/AuthContextProvider";
 const Navbar = () => {
   // for authentication
+  const { logout } = useAuth()
   const { colorMode, toggleColorMode } = useColorMode();
   const { currentUser, userDetails } = UseAuth();
   console.log("currentUser: ", currentUser);
@@ -176,7 +178,7 @@ const Navbar = () => {
                         <Text fontSize={"12px"} w="60px" display={"block"}>
                           {currentUser
                             ? currentUser?.displayName ||
-                              userDetails?.displayFirstName
+                              userDetails?.displayFirstNameSignUp
                             : "Sign In & Sign Up"}
                         </Text>
                       </Flex>

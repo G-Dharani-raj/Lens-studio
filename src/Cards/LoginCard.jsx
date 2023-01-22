@@ -113,8 +113,8 @@ const Login = () => {
           Sign In Google
         </button>
         {userDetails?.isAdmin?<Text>
-        Are you a Admin ?
-          <Link to="/adminlogin">Login</Link>
+        
+          <Link to="/adminlogin">Admin Panel</Link>
           </Text>:""}
         
           

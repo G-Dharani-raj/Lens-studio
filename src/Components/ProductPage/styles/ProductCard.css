@@ -18,10 +18,10 @@
 .imag_container > img {
   width: 100%;
   border-radius: 17px;
+  transition: 0.8s ease-out;
 }
 .imag_container > img:hover {
   transform: scale(1.1);
-  transition: 0.8s ease-out;
 }
 .product_offer_container {
   margin-left: -10px;

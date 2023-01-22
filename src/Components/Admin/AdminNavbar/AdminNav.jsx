@@ -10,7 +10,6 @@ import {
 	MenuButton,
 	MenuList,
 	MenuItem,
-	MenuDivider,
 	useDisclosure,
 	useColorModeValue,
 	Stack,
@@ -22,12 +21,11 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useLocation, useNavigate } from "react-router-dom";
-import AdminSearchPage from "../AdminSearchPage";
 import Logo from "./lens.png";
 import { Link as Routerlink } from "react-router-dom";
 const Links = [
 	{ name: "Dashboard", path: "/admin" },
-	{ name: "Products", path: "/admin" },
+	{ name: "Products", path: "/admin/products" },
 	{ name: "Add Products", path: "/admin/add" },
 	{ name: "Users", path: "/admin/users" },
 ];
@@ -60,7 +58,11 @@ export default function AdminNav() {
 	};
 	return (
 		<>
-			<Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+			<Box
+				bg={useColorModeValue("gray.100", "gray.900")}
+				px={4}
+				style={{ position: "sticky", top: "0px", zIndex: 100 }}
+			>
 				<Flex
 					h={16}
 					alignItems={"center"}

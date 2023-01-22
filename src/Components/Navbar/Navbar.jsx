@@ -51,7 +51,7 @@ const Navbar = () => {
 
   const { isOpen, onToggle } = useDisclosure();
   return (
-    <Box bg='white' zIndex={'99'}   position='sticky' top='1px' maxWidth='100%'>
+    <Box bg="white" zIndex={"99"} position="sticky" top="1px" maxWidth="100%">
       <div className="Navbar">
         <ul>
           <p>Do More, Be More</p>
@@ -102,15 +102,11 @@ const Navbar = () => {
             />
           </Flex>
           <Box flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-            <Flex
-              display={{ base: "none", md: "flex" }}
-              ml={10}
-              justifyContent="space-between"
-              m="auto"
-              gap="10px"
-            >
-              <Flex w="20%" gap={"20%"}>
-                <Image src={Logo} w="130px" m="auto" />
+            <Flex display={{ base: "none", md: "flex" }} m="auto" gap="160px">
+              <Flex w="20%" gap={"20%"} justifyContent="center">
+                <Link href="/">
+                  <Image src={Logo} size="100px" h="30px" />
+                </Link>
 
                 <Image
                   src="https://static.lenskart.com/media/mobile/images/phone_number.svg"
@@ -132,24 +128,13 @@ const Navbar = () => {
                   alignItems={"center"}
                   spacing={7}
                 >
-                  {/* <Text w="70px" fontSize="12px" m="auto">
-              Track Order
-            </Text> */}
-                  {/* <Flex alignItems={"center"}></Flex> */}
-                  {/* <LoginModal />
-            <ModalCom /> */}
-                  {/* // for authentication */}
                   <Flex gap={"5px"}>
                     <FaRegHeart />
-                    {/* <Text w="50px" fontSize="12px" m="auto">
-                Wishlist
-              </Text>{" "} */}
                   </Flex>
                   <Flex gap={"5px"}>
-                    <FaShoppingCart />
-                    {/* <Text w="50px" fontSize="12px" m="auto">
-                Cart
-              </Text>{" "} */}
+                    <Link href="/cart">
+                      <FaShoppingCart />
+                    </Link>
                   </Flex>
                   <Menu>
                     <MenuButton
@@ -159,10 +144,6 @@ const Navbar = () => {
                       cursor={"pointer"}
                       minW={0}
                     >
-                      {/* <Box>
-                  {currentUser?( <Avatar 
-                      size={"sm"} src={currentUser.photoURL} alt="abc"/>):<FaUserCircle  />}
-                  </Box> */}
                       <Flex gap={"5px"}>
                         <Box>
                           {currentUser ? (
@@ -205,14 +186,14 @@ const Navbar = () => {
                   </Menu>
                 </Stack>
               </Box>
-              <Box
+              {/* <Box
                 w={{ base: "0px", md: "0px", lg: "0px", xl: "80px" }}
                 display={{ base: "none", xl: "block" }}
               >
                 <Button onClick={toggleColorMode}>
                   {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
                 </Button>
-              </Box>
+              </Box> */}
             </Flex>{" "}
             <Flex display={{ base: "none", md: "flex" }} ml={10}>
               <DesktopNav />
@@ -404,14 +385,19 @@ const NAV_ITEMS = [
     rute: "/products",
     children: [
       {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
+        label: "MEN",
+        subLabel: "MENS EYEGlasses",
+        href: "/products",
       },
       {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
+        label: "WOMEN",
+        subLabel: "WOMENS EYEGlasses",
+        href: "/products",
+      },
+      {
+        label: "KIDS",
+        subLabel: "KIDS EYEGlasses",
+        href: "/products",
       },
     ],
   },
@@ -420,63 +406,75 @@ const NAV_ITEMS = [
     rute: "/products",
     children: [
       {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
+        label: "MEN",
+        subLabel: "MENS COMPUTERGlasses",
+        href: "/products",
       },
       {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
+        label: "WOMEN",
+        subLabel: "WOMENS COMPUTERGlasses",
+        href: "/products",
+      },
+      {
+        label: "KIDS",
+        subLabel: "KIDS COMPUTERGlasses",
+        href: "/products",
       },
     ],
   },
   {
     label: "KIDS GLASSES",
     rute: "/products",
-    href: "#",
+    children: [
+      {
+        label: "EYEGLASSES",
+        subLabel: "KIDS EYEGlasses",
+        href: "/products",
+      },
+      {
+        label: "POWER GLASSES",
+        subLabel: "KIDS ZERO POWER Glasses",
+        href: "/products",
+      },
+      {
+        label: "SUNGLASSES",
+        subLabel: "KIDS SUNGLASSES",
+        href: "/products",
+      },
+    ],
   },
 
   {
     label: "CONTACT LENSES",
     rute: "/products",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
-    ],
   },
   {
     label: "SUNGLASSES",
     rute: "/products",
     children: [
       {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
+        label: "MEN",
+        subLabel: "MENS COMPUTERGlasses",
+        href: "/products",
       },
       {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
+        label: "WOMEN",
+        subLabel: "WOMENS COMPUTERGlasses",
+        href: "/products",
+      },
+      {
+        label: "KIDS",
+        subLabel: "KIDS COMPUTERGlasses",
+        href: "/products",
       },
     ],
   },
   {
     label: "HOME EYE-TEST",
     rute: "/products",
-    href: "#",
   },
   {
     label: "STORE LOCATOR",
     rute: "/products",
-    href: "#",
   },
 ];

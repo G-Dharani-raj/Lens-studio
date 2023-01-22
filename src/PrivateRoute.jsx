@@ -9,7 +9,8 @@ const PrivateRoute = ({ children }) => {
     const { currentUser, userDetails } = UseAuth();
     useEffect(() => {
         if (!isAuth) return navigate('/')
-        else if (isAuth && !userDetails?.isAdmin && location.pathname === '/admin') return navigate("/", "/")
+//         else if (isAuth && !(userDetails?.isAdmin) && 
+//             (location.pathname === '/admin' || location.pathname === '/admin/add' || location.pathname === '/admin/update' || location.pathname === '/admin/search'  || location.pathname === '/admin/users')) return navigate("/", "/")
    }, [isAuth])
 
    return children;

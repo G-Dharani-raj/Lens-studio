@@ -1,4 +1,5 @@
-import { Box, Center, Divider, Flex, Text, Link } from "@chakra-ui/react";
+import { Box, Center, Divider, Flex, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import React, { useEffect } from "react";
 import CartCard from "./CartCard";
 import CartNav from "./CartNav";
@@ -110,7 +111,7 @@ const Cart = () => {
           </Box>{" "}
           <Box borderRadius="40px" padding="20px" mt="25px" bgColor={"#64dbad"}>
             <Center>
-              <Link href="/checkout">
+              <Link to="/checkout">
                 <Text>Proceed To Checkout</Text>
               </Link>
             </Center>

@@ -9,7 +9,6 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
   Input,
   Popover,
   PopoverTrigger,
@@ -31,9 +30,8 @@ import {
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-  MoonIcon,
-  SunIcon,
 } from "@chakra-ui/icons";
+import {Link} from "react-router-dom"
 import ModalCom from "../../Modal/SignUpModal";
 import LoginModal from "../../Modal/LoginModal";
 import { logout } from "../../Cards/LoginCard";
@@ -102,7 +100,7 @@ const Navbar = () => {
           <Box flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
             <Flex display={{ base: "none", md: "flex" }} m="auto" gap="160px">
               <Flex w="20%" gap={"20%"} justifyContent="center">
-                <Link href="/">
+                <Link to="/">
                   <Image src={Logo} size="100px" h="30px" />
                 </Link>
 
@@ -130,7 +128,7 @@ const Navbar = () => {
                     <FaRegHeart />
                   </Flex>
                   <Flex gap={"5px"}>
-                    <Link href="/cart">
+                    <Link to="/cart">
                       <FaShoppingCart />
                     </Link>
                   </Flex>
@@ -232,7 +230,7 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Link
                 p={2}
-                href={navItem.rute ?? "#"}
+                to={navItem.rute ?? "#"}
                 fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
@@ -275,7 +273,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
     <Flex>
       <Link
-        href={href}
+        to={href}
         role={"group"}
         display={"block"}
         p={2}

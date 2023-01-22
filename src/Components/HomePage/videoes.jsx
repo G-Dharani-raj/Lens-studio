@@ -7,13 +7,14 @@ const Videos = () => {
       padding={"30px"}
       bgColor="#fff092"
       marginTop={"25px"}
-      // display={{ sm: "none", md: "flex" }}
+      display={{ base: "none", sm: "none", md: "grid" }}
       // flexDirection="row"
     >
       <Center>
         <Text fontSize="25px">MEET OUR HAPPY CUSTOMERS</Text>
       </Center>
-      <SimpleGrid columns={[1, 1, 1, 3]} marginTop="30px">
+
+      <SimpleGrid columns={[0, 0, 0, 1,3]} marginTop="30px">
         <Box>
           <iframe
             width="415"

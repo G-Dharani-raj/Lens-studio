@@ -10,6 +10,7 @@ import {
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addData, updateData } from "../../../redux/Admin/admin.actions";
+import { useToast } from "@chakra-ui/react";
 
 const AdminUpdateForm = () => {
 	let obj = JSON.parse(localStorage.getItem("product")) || [];
@@ -19,7 +20,8 @@ const AdminUpdateForm = () => {
 	const [price, setPrice] = useState(obj.product_price);
 	const discountRef = useRef();
 	const categoryRef = useRef();
-	console.log(obj);
+	const toast = useToast();
+	// console.log(obj);
 
 	// * redux
 	const { data } = useSelector((store) => store.adminManager);
@@ -41,6 +43,13 @@ const AdminUpdateForm = () => {
 				: obj.category,
 		};
 		updateData(dispatch, obj.id, new_obj);
+		toast({
+			title: "Details updated.",
+			description: "Go back to the products page to see the changes.",
+			status: "success",
+			duration: 1500,
+			isClosable: true,
+		});
 	};
 	return (
 		<Center>

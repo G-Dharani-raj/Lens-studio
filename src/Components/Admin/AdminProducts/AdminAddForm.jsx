@@ -1,4 +1,5 @@
 import {
+	Box,
 	Center,
 	FormControl,
 	FormLabel,
@@ -43,9 +44,9 @@ const AdminAddForm = () => {
 		});
 	};
 	return (
-		<Center>
-			<Stack>
-				<Heading>Add Product Form</Heading>
+		<Box width={{ base: "100%", md: "70%", lg: "50%" }} m={"auto"}>
+			<Stack lineHeight={10}>
+				<Heading textAlign={"center"}>Add Product Form</Heading>
 				<form onSubmit={handleSubmit}>
 					<FormControl isRequired>
 						<FormLabel>Image URL</FormLabel>
@@ -91,11 +92,21 @@ const AdminAddForm = () => {
 						<Input type="number" ref={priceRef} />
 						<FormLabel>Discount</FormLabel>
 						<Input type="number" ref={discountRef} />
-						<Input type="submit" />
+						<Input
+							type="submit"
+							bg="gray.100"
+							my={5}
+							transition={"background 0.5s ease-in-out"}
+							_hover={{
+								// bg: "linear-gradient(90deg, rgba(243, 196, 170, 1), rgba(228, 81, 154, 1) 50%, rgba(77, 84, 224, 1))",
+								bg: "gray.600",
+								color: "white",
+							}}
+						/>
 					</FormControl>
 				</form>
 			</Stack>
-		</Center>
+		</Box>
 	);
 };
 

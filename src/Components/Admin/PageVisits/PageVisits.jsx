@@ -52,7 +52,7 @@ const PageVisits = () => {
 	});
 	useEffect(() => {
 		countapi
-			.hit("lenstudio.com", "0aa8524b-a4f6-41a7-8043-ea923f7d2a68")
+			.get("lenstudio.com", "0aa8524b-a4f6-41a7-8043-ea923f7d2a68")
 			.then((result) => setVisits(result.value));
 		localStorage.setItem("visits", visits);
 		// setViews();

@@ -52,7 +52,7 @@ const AdminSearch = () => {
 			.then((res) => setSuggestions(res.data));
 	}, []);
 	console.log(suggestions);
-	if (loading) return <AdminSkeleton />;
+	// if (loading) return <AdminSkeleton />;
 	return (
 		<>
 			<VStack gap={5} py={10}>
@@ -74,7 +74,9 @@ const AdminSearch = () => {
 						{suggestions.length} Results found
 					</Heading>
 				</Center>
-				{suggestions.length > 0 ? (
+				{loading ? (
+					<AdminSkeleton />
+				) : suggestions.length > 0 ? (
 					<SimpleGrid
 						columns={{ base: 1, lg: 4, md: 2, sm: 1 }}
 						gap={5}

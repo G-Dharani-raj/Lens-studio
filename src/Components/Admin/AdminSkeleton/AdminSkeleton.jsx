@@ -8,7 +8,7 @@ const AdminSkeleton = () => {
 
 	return (
 		<>
-			<SimpleGrid columns={{ base: 3, lg: 4, md: 2, sm: 1 }} gap={5}>
+			<SimpleGrid columns={{ base: 1, lg: 4, md: 2, sm: 1 }} gap={5}>
 				{arr.map((e) => {
 					return <SkeletonCard key={e} />;
 				})}

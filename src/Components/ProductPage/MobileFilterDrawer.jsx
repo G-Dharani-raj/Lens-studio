@@ -9,7 +9,7 @@ import {
   DrawerCloseButton,
   Button,
 } from "@chakra-ui/react";
-import { useDisclosure } from "@chakra-ui/react";
+ 
 
 export default function MobileFilterDrawer({
   children,
@@ -32,11 +32,8 @@ export default function MobileFilterDrawer({
               Cancel
             </Button>
             <Button
-              onClick={() => {
-                setTimeout(() => {
-                  onClose()
-                }, 1000);
-              }}
+              onClick={ onClose}
+               
               colorScheme="blue"
             >
               filter

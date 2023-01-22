@@ -1,4 +1,5 @@
-import { Box, Center, Divider, Flex, Text, Link } from "@chakra-ui/react";
+import { Box, Center, Divider, Flex, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import React, { useEffect } from "react";
 import CartCard from "./CartCard";
 import CartNav from "./CartNav";
@@ -6,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCartData, removeCartData } from "./CartRedux/CartAction";
 import { updateCartData } from "./CartRedux/CartAction";
 import { FaAngleRight } from "react-icons/fa";
+import CartNull from "./cartnull";
+import LoaderSpinner from "../Loader/LoaderSpinner";
 const Cart = () => {
   const { data, loading } = useSelector((store) => store.cartManager);
   const dispatch = useDispatch();
@@ -30,7 +33,17 @@ const Cart = () => {
   }
   let finalPrice = total + tax;
   if (loading) {
-    return <h1>Loding.........</h1>;
+    return (
+      <>
+        <CartNav />
+        <Center>
+          <LoaderSpinner />
+        </Center>
+      </>
+    );
+  }
+  if (data.length === 0) {
+    return <CartNull />;
   }
   return (
     <Box>
@@ -110,7 +123,7 @@ const Cart = () => {
           </Box>{" "}
           <Box borderRadius="40px" padding="20px" mt="25px" bgColor={"#64dbad"}>
             <Center>
-              <Link href="/checkout">
+              <Link to="/checkout">
                 <Text>Proceed To Checkout</Text>
               </Link>
             </Center>

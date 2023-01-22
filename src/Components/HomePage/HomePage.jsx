@@ -53,7 +53,9 @@ const HomePage = () => {
       />
       <Box>
         <Center>
-          <Text fontSize={"30px"}>WEAR THE TREND </Text>
+          <Text fontSize={{ md: "15px", sm: "20px", lg: "30px" }}>
+            WEAR THE TREND{" "}
+          </Text>
         </Center>
       </Box>
       <Divider width={"90%"} margin="auto" />
@@ -62,7 +64,10 @@ const HomePage = () => {
       </Box>
       <Box>
         <Center>
-          <Text fontSize="30px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "15px", sm: "20px", lg: "30px" }}
+            marginTop={"25px"}
+          >
             As Seen on Shark Tank
           </Text>
         </Center>
@@ -76,7 +81,10 @@ const HomePage = () => {
       </Box>
       <Box>
         <Center>
-          <Text fontSize="30px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "15px", sm: "20px", lg: "30px" }}
+            marginTop={"25px"}
+          >
             Trending Sunglasses
           </Text>
         </Center>
@@ -90,7 +98,10 @@ const HomePage = () => {
       </Box>
       <Box>
         <Center>
-          <Text fontSize="30px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "15px", sm: "20px", lg: "30px" }}
+            marginTop={"25px"}
+          >
             As Seen On Kiara
           </Text>
         </Center>
@@ -104,7 +115,10 @@ const HomePage = () => {
       </Box>
       <Box>
         <Center>
-          <Text fontSize="30px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "15px", sm: "20px", lg: "30px" }}
+            marginTop={"25px"}
+          >
             Aquacolor - Glam Up With Color Lenses
           </Text>
         </Center>
@@ -118,7 +132,10 @@ const HomePage = () => {
       </Box>
       <Box width="85%" margin={"auto"}>
         <Center>
-          <Text fontSize="30px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "15px", sm: "20px", lg: "30px" }}
+            marginTop={"25px"}
+          >
             FIND THE PERFECT FIT
           </Text>
         </Center>
@@ -150,7 +167,10 @@ const HomePage = () => {
       </Box>
       <Box>
         <Center>
-          <Text fontSize="30px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "15px", sm: "20px", lg: "30px" }}
+            marginTop={"25px"}
+          >
             INTRODUCING OJOS Wear - SUBSCRIBE & SAVE
           </Text>
         </Center>
@@ -166,7 +186,10 @@ const HomePage = () => {
       </Box>
       <Box>
         <Center>
-          <Text fontSize="30px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "15px", sm: "20px", lg: "30px" }}
+            marginTop={"25px"}
+          >
             CONTACT LENSES & MORE
           </Text>
         </Center>
@@ -189,7 +212,10 @@ const HomePage = () => {
       </Box>
       <Box>
         <Center>
-          <Text fontSize="30px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "15px", sm: "20px", lg: "30px" }}
+            marginTop={"25px"}
+          >
             INTRODUCING OJOS Wear - SUBSCRIBE & SAVE
           </Text>
         </Center>
@@ -218,7 +244,10 @@ const HomePage = () => {
       </Box>
       <Box>
         <Center>
-          <Text fontSize="30px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "15px", sm: "20px", lg: "30px" }}
+            marginTop={"25px"}
+          >
             OUR BRANDS
           </Text>
         </Center>
@@ -232,10 +261,17 @@ const HomePage = () => {
       </Box>
       <Box width="80%" margin={"auto"}>
         <Flex justifyContent={"space-between"}>
-          <Text fontSize="20px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "10px", sm: "15px", lg: "20px" }}
+            marginTop={"25px"}
+          >
             EYEGLASSES
           </Text>
-          <Text fontSize="15px" marginTop={"25px"} color="#439c92">
+          <Text
+            fontSize={{ md: "8px", sm: "10px", lg: "15px" }}
+            marginTop={"25px"}
+            color="#439c92"
+          >
             View Ranges
           </Text>
         </Flex>
@@ -244,10 +280,17 @@ const HomePage = () => {
       </Box>
       <Box width="80%" margin={"auto"}>
         <Flex justifyContent={"space-between"}>
-          <Text fontSize="20px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "10px", sm: "15px", lg: "20px" }}
+            marginTop={"25px"}
+          >
             SUNGLASSES
           </Text>
-          <Text fontSize="15px" marginTop={"25px"} color="#439c92">
+          <Text
+            fontSize={{ md: "8px", sm: "10px", lg: "15px" }}
+            marginTop={"25px"}
+            color="#439c92"
+          >
             View Ranges
           </Text>
         </Flex>
@@ -259,10 +302,17 @@ const HomePage = () => {
       </Box>
       <Box width="80%" margin={"auto"}>
         <Flex justifyContent={"space-between"}>
-          <Text fontSize="20px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "10px", sm: "15px", lg: "20px" }}
+            marginTop={"25px"}
+          >
             EYEGLASSES
           </Text>
-          <Text fontSize="15px" marginTop={"25px"} color="#439c92">
+          <Text
+            fontSize={{ md: "8px", sm: "10px", lg: "15px" }}
+            marginTop={"25px"}
+            color="#439c92"
+          >
             View Ranges
           </Text>
         </Flex>
@@ -274,10 +324,17 @@ const HomePage = () => {
       </Box>
       <Box width="80%" margin={"auto"}>
         <Flex justifyContent={"space-between"}>
-          <Text fontSize="20px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "10px", sm: "15px", lg: "20px" }}
+            marginTop={"25px"}
+          >
             EYEGLASSES
           </Text>
-          <Text fontSize="15px" marginTop={"25px"} color="#439c92">
+          <Text
+            fontSize={{ md: "8px", sm: "10px", lg: "15px" }}
+            marginTop={"25px"}
+            color="#439c92"
+          >
             View Ranges
           </Text>
         </Flex>
@@ -289,20 +346,34 @@ const HomePage = () => {
       </Box>
       <Box width="80%" margin={"auto"}>
         <Flex justifyContent={"space-between"}>
-          <Text fontSize="20px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "10px", sm: "15px", lg: "20px" }}
+            marginTop={"25px"}
+          >
             WITH POWER COMPUTER BLU LENSES
           </Text>
-          <Text fontSize="15px" marginTop={"25px"} color="#439c92">
+          <Text
+            fontSize={{ md: "8px", sm: "10px", lg: "15px" }}
+            marginTop={"25px"}
+            color="#439c92"
+          >
             View Ranges
           </Text>
         </Flex>
         <Divider width={"100%"} margin="auto" />
         <PowerGlasess />
         <Flex justifyContent={"space-between"}>
-          <Text fontSize="20px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "10px", sm: "15px", lg: "20px" }}
+            marginTop={"25px"}
+          >
             WITH ZERO POWER COMPUTER BLU LENSES
           </Text>
-          <Text fontSize="15px" marginTop={"25px"} color="#439c92">
+          <Text
+            fontSize={{ md: "8px", sm: "10px", lg: "15px" }}
+            marginTop={"25px"}
+            color="#439c92"
+          >
             View Ranges
           </Text>
         </Flex>
@@ -314,20 +385,34 @@ const HomePage = () => {
       </Box>
       <Box width="80%" margin={"auto"}>
         <Flex justifyContent={"space-between"}>
-          <Text fontSize="20px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "10px", sm: "15px", lg: "20px" }}
+            marginTop={"25px"}
+          >
             CONTACT LENSES
           </Text>
-          <Text fontSize="15px" marginTop={"25px"} color="#439c92">
+          <Text
+            fontSize={{ md: "8px", sm: "10px", lg: "15px" }}
+            marginTop={"25px"}
+            color="#439c92"
+          >
             View Ranges
           </Text>
         </Flex>
         <Divider width={"100%"} margin="auto" />
         <ContctLense />
         <Flex justifyContent={"space-between"}>
-          <Text fontSize="20px" marginTop={"25px"}>
+          <Text
+            fontSize={{ md: "10px", sm: "15px", lg: "20px" }}
+            marginTop={"25px"}
+          >
             COLOR CONTACT LENSES
           </Text>
-          <Text fontSize="15px" marginTop={"25px"} color="#439c92">
+          <Text
+            fontSize={{ md: "8px", sm: "10px", lg: "15px" }}
+            marginTop={"25px"}
+            color="#439c92"
+          >
             View Ranges
           </Text>
         </Flex>

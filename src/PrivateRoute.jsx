@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,useLocation } from 'react-router-dom'
 import UseAuth from './CustomHook/UseAuth'
 
 const PrivateRoute = ({ children }) => {
     const isAuth = JSON.parse(localStorage.getItem('isAuth')) || false
     const navigate = useNavigate()
+    const location = useLocation()
     const { currentUser, userDetails } = UseAuth();
     useEffect(() => {
         if (!isAuth) return navigate('/')
-        
+        else if (isAuth && !userDetails?.isAdmin && location.pathname === '/admin') return navigate("/", "/")
    }, [isAuth])
 
    return children;
 
 }
 export default PrivateRoute
+
+// && location.pathname === '/admin/add' && location.pathname === '/admin/update'  && location.pathname === '/admin/search' && location.pathname === '/admin/users'

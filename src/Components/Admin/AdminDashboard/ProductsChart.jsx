@@ -66,4 +66,4 @@ const ProductsChart = () => {
 	);
 };
 
-export default ProductsChart;
+export default React.memo(ProductsChart);

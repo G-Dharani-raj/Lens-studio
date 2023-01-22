@@ -36,12 +36,13 @@ const AdminAddForm = () => {
 		};
 		addData(dispatch, obj);
 		toast({
-			title: "Account created.",
-			description: "We've created your account for you.",
+			title: "Product Added.",
+			description: "Go back to the dashboard to see product.",
 			status: "success",
 			duration: 1000,
 			isClosable: true,
 		});
+		e.reset();
 	};
 	return (
 		<Box width={{ base: "100%", md: "70%", lg: "50%" }} m={"auto"}>

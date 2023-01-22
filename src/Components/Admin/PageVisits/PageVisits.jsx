@@ -87,7 +87,7 @@ const PageVisits = () => {
 	);
 };
 
-export default PageVisits;
+export default React.memo(PageVisits);
 
 // {
 //     "status": 200,

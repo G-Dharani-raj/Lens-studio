@@ -53,7 +53,7 @@ const Navbar = () => {
     cartItem = data.length;
   }
   const { isOpen, onToggle } = useDisclosure();
-  
+
   return (
     <Box bg="white" zIndex={"99"} position="sticky" top="1px" maxWidth="100%">
       <div className="Navbar">
@@ -139,12 +139,14 @@ const Navbar = () => {
                   <Flex gap={"5px"}>
                     <FaRegHeart />
                   </Flex>
-                  <Link to="/cart">
-                    <Flex gap={"5px"} alignContent="center" mt="6px">
+                  <Flex gap={"5px"} alignContent="center" mt="6px">
+                    <Link to="/cart">
                       <FaShoppingCart />
                       {/* <Text mt="-3px">{cartItem}</Text> */}
-                    </Flex>
-                  </Link>
+                    </Link>
+                    
+                  </Flex>
+
                   <Menu>
                     <MenuButton
                       as={Button}

@@ -111,6 +111,7 @@ function AdminNav() {
 								type="text"
 								bg="white"
 								onKeyDown={handleSearch}
+								placeholder="Search for a product..."
 							/>
 						</InputGroup>
 					) : null}

@@ -100,6 +100,7 @@ const AdminSearch = () => {
 							onChange={(e) =>
 								optimizedFn(e.target.value, category)
 							}
+							placeholder="Search for a product..."
 						/>
 						<Select
 							width={"20%"}

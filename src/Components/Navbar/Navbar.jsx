@@ -78,7 +78,7 @@ const Navbar = () => {
 					<p>Aqualens</p>
 					<p>Cobrowsing</p>
 					<p>Engineering Blog</p>
-					<p>Lenskart Franchise</p>
+					<p>Lens Studio Franchise</p>
 				</ul>
 				<ul>
 					<p>Contact Us</p>

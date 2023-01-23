@@ -10,8 +10,17 @@ import countapi from "countapi-js";
 function App() {
 	useEffect(() => {
 		// * Tracking the visits
+
+		// countapi
+		// 	.update(
+		// 		"lenstudio.com",
+		// 		"0aa8524b-a4f6-41a7-8043-ea923f7d2a68",
+		// 		-900
+		// 	)
+		// 	.then((result) => console.log(result));
+
 		countapi
-			.hit("lenstudio.com", "0aa8524b-a4f6-41a7-8043-ea923f7d2a68")
+			.hit("lenstudio.com", "0aa8524b-a4f6-41a7-8043-ea923f7d2a69")
 			.then((result) => localStorage.setItem("visits", result.value));
 	}, []);
 	return (

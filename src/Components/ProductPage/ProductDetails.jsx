@@ -30,7 +30,7 @@ function ProductDetails() {
 
 	useEffect(() => {
 		getSingleProductDetails(id);
-	}, [id]);
+	}, []);
 
 	const notification = () => {
 		toast.success("✌️ added to cart !", {

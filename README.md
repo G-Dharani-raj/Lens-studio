@@ -52,6 +52,9 @@
 ![Payment page](https://user-images.githubusercontent.com/112627297/213936038-d2cc8acc-c3f3-4e3f-b375-669fc2ad61d2.png)
 
 # 7. Admin Dashboard
+<strong>Admin details to login </strong>
+- Username : admin
+- password : 12345678
 
 ![Admin](https://user-images.githubusercontent.com/112627297/213936586-77948ddf-e5ea-4a53-ac83-95412a827f8c.png)
 
